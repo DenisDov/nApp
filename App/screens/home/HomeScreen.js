@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getPhotosRequest } from '../../redux/ducks/photoSlice';
+
+import Loader from '../../components/Loader';
 
 const HomeScreen = () => {
 	const dispatch = useDispatch();
@@ -10,6 +12,12 @@ const HomeScreen = () => {
 	useEffect(() => {
 		dispatch(getPhotosRequest());
 	}, [dispatch]);
+
+	const isFetching = useSelector(state => state.photos.fetching);
+
+	if (isFetching) {
+		return <Loader />;
+	}
 
 	return (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

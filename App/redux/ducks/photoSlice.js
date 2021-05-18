@@ -4,19 +4,14 @@ const photoSlice = createSlice({
 	name: 'photos',
 	initialState: {
 		photos: [],
-		fetching: false,
+		fetching: true,
 		error: null,
 	},
 	reducers: {
-		getPhotosRequest(state, action) {
-			return {
-				...state,
-				fetching: true,
-			};
-		},
+		getPhotosRequest() {},
 		getPhotosSuccess(state, action) {
 			const photos = action.payload;
-			return { ...state, photos, error: null };
+			return { ...state, photos, fetching: false, error: null };
 		},
 		getPhotosFail(state, action) {
 			return { ...state, error: action.payload };
