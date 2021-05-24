@@ -2,6 +2,8 @@ import React from 'react';
 import { useColorScheme, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ThemeProvider } from '@shopify/restyle';
+import { theme } from './theme';
 
 import AppNavigator from './Navigation';
 
@@ -15,12 +17,14 @@ const App = () => {
 
 	return (
 		<Provider store={store}>
-			<Network>
-				<SafeAreaProvider>
-					<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-					<AppNavigator />
-				</SafeAreaProvider>
-			</Network>
+			<ThemeProvider theme={theme}>
+				<Network>
+					<SafeAreaProvider>
+						<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+						<AppNavigator />
+					</SafeAreaProvider>
+				</Network>
+			</ThemeProvider>
 		</Provider>
 	);
 };

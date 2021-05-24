@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { View, Text, Button } from 'react-native';
+// import { Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getPhotosRequest } from '../../redux/ducks/photoSlice';
 
 import Loader from '../../components/Loader';
 
-const HomeScreen = () => {
+import { Box, Text } from '../../theme';
+
+const HomeScreen = ({ navigation }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -14,15 +16,19 @@ const HomeScreen = () => {
 	}, [dispatch]);
 
 	const isFetching = useSelector(state => state.photos.fetching);
+	const photos = useSelector(state => state.photos.photos);
 
 	if (isFetching) {
 		return <Loader />;
 	}
 
 	return (
-		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-			<Text>HOME HERE</Text>
-		</View>
+		<Box flex={1} justifyContent="center" alignItems="center">
+			<Text variant="header">HOME HERE</Text>
+			<Text variant="subheader" onPress={() => navigation.navigate('Settings')}>
+				GO TO SETTINGS
+			</Text>
+		</Box>
 	);
 };
 
