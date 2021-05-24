@@ -18,12 +18,12 @@ const App = () => {
 	return (
 		<Provider store={store}>
 			<ThemeProvider theme={theme}>
-				<Network>
-					<SafeAreaProvider>
-						<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+				<SafeAreaProvider>
+					<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+					<Network>
 						<AppNavigator />
-					</SafeAreaProvider>
-				</Network>
+					</Network>
+				</SafeAreaProvider>
 			</ThemeProvider>
 		</Provider>
 	);

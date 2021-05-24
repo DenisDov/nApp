@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
-// import { withTranslation } from 'react-i18next';
-
+import { View, Text, Image } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 
 import styles from './style';
 
-const Network = ({ t, children }) => {
+const Network = ({ children }) => {
 	const [status, changeStatus] = useState(true);
 
 	useEffect(() => {
-		const subscribe = NetInfo.addEventListener(state => changeStatus(state.isConnected));
+		const unsubscribe = NetInfo.addEventListener(state => changeStatus(state.isConnected));
 		return () => {
-			subscribe();
+			unsubscribe();
 		};
 	});
 
 	if (!status) {
 		return (
 			<View style={styles.container}>
-				{/* <Text>{t('components.network.error')}</Text> */}
-				<Text>\ERR NETWORK</Text>
+				<Image source={require('./lost.png')} resizeMode="contain" style={styles.image} />
+				<View>
+					<Text style={styles.header}>Oops...</Text>
+					<Text style={styles.subheader}>No internet connection</Text>
+				</View>
 			</View>
 		);
 	}
 	return children;
 };
 
-// export default withTranslation()(Network);
 export default Network;
