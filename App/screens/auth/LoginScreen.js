@@ -1,26 +1,25 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, TextInput } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Box, Text } from '../../theme';
 import assets from '../../assets';
+
+import Button from '../../components/Button';
+import Input from '../../components/Input';
+import Divider from '../../components/Divider';
 
 const LoginScreen = () => {
 	return (
 		<ImageBackground source={assets.images.AUTH_BACKGROUND} style={styles.image}>
 			<SafeAreaView style={styles.container}>
-				<Box flex={1} margin="m" justifyContent="space-between">
+				<Box flex={0.5} margin="m" justifyContent="space-between">
 					<Text variant="header">Login</Text>
 					<Box>
-						<TextInput
-							style={styles.input}
-							// onChangeText={onChangeText}
-							value="lol"
-						/>
-						<TextInput
-							style={styles.input}
-							// onChangeText={onChangeText}
-							value="lol"
-						/>
+						<Input ionicon="mail-outline" placeholder="Email" />
+						<Input ionicon="lock-closed-outline" placeholder="Password" />
+						<Button text="Log in" />
+						<Divider />
+						<Button text="Sign up" />
 					</Box>
 				</Box>
 			</SafeAreaView>
@@ -35,11 +34,6 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-	},
-	input: {
-		height: 40,
-		// margin: 12,
-		borderWidth: 1,
 	},
 });
 
