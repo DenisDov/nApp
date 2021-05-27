@@ -17,7 +17,7 @@ const theme = createTheme({
 	colors: {
 		mainBackground: palette.white,
 		cardPrimaryBackground: palette.purplePrimary,
-		textColor: palette.black,
+		textColor: palette.white,
 	},
 	spacing: {
 		s: 8,
@@ -31,23 +31,19 @@ const theme = createTheme({
 	},
 	textVariants: {
 		header: {
-			// fontFamily: 'ShopifySans-Bold',
-			fontWeight: 'bold',
+			fontFamily: 'Raleway-Semibold',
 			fontSize: 34,
-			lineHeight: 42.5,
 			color: 'textColor',
 		},
 		subheader: {
 			// fontFamily: 'ShopifySans-SemiBold',
-			fontWeight: '600',
+			fontWeight: '400',
 			fontSize: 28,
-			lineHeight: 36,
 			color: 'textColor',
 		},
 		body: {
 			// fontFamily: 'ShopifySans',
 			fontSize: 16,
-			lineHeight: 24,
 			color: 'textColor',
 		},
 	},
