@@ -22,7 +22,11 @@ const Button = ({ text, onPress, loading }) => {
 					},
 				],
 			]}>
-			{loading ? <ActivityIndicator /> : <Text>{text}</Text>}
+			{loading ? (
+				<ActivityIndicator color={theme.colors.light} />
+			) : (
+				<Text style={{ color: theme.colors.light }}>{text}</Text>
+			)}
 		</Pressable>
 	);
 };

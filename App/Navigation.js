@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 // Screens start
 import LoginScreen from '../App/screens/auth/LoginScreen';
 import RegisterScreen from '../App/screens/auth/RegisterScreen';
@@ -14,12 +13,11 @@ import SettingsScreen from '../App/screens/home/SettingsScreen';
 
 const Stack = createStackNavigator();
 
-const AppNavigator = () => {
+const AppNavigator = ({ theme }) => {
 	const { t } = useTranslation();
 	const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-	console.log('isAuthenticated: ', isAuthenticated);
 	return (
-		<NavigationContainer>
+		<NavigationContainer theme={theme}>
 			<Stack.Navigator>
 				{!isAuthenticated ? (
 					<Stack.Group screenOptions={{ headerMode: 'none' }}>

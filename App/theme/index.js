@@ -4,14 +4,18 @@ const palette = {
 	blue: '#026AFF',
 	black: '#0B0B0B',
 	lightGray: '#F0F2F3',
+	white: '#fff',
 };
 
 const theme = createTheme({
 	colors: {
-		mainBackground: palette.lightGray,
 		primary: palette.blue,
-		textColor: palette.black,
-		light: palette.lightGray,
+		background: palette.lightGray,
+		// card: 'rgb(255, 255, 255)',
+		text: palette.black,
+		light: palette.white,
+		border: palette.black,
+		// notification: 'rgb(255, 69, 58)',
 	},
 	spacing: {
 		s: 8,
@@ -30,17 +34,17 @@ const theme = createTheme({
 		header: {
 			fontFamily: 'Raleway-Semibold',
 			fontSize: 34,
-			color: 'textColor',
+			color: 'text',
 		},
 		subheader: {
 			fontFamily: 'Raleway-Regular',
 			fontSize: 28,
-			color: 'textColor',
+			color: 'text',
 		},
 		body: {
 			fontFamily: 'Raleway-Regular',
 			fontSize: 16,
-			color: 'textColor',
+			color: 'text',
 		},
 	},
 });
@@ -49,10 +53,9 @@ const darkTheme = {
 	...theme,
 	colors: {
 		...theme.colors,
-		mainBackground: palette.black,
-		// primary: palette.blue,
-		textColor: palette.lightGray,
-		// light: palette.lightGray,
+		background: palette.black,
+		text: palette.lightGray,
+		border: palette.lightGray,
 	},
 };
 

@@ -1,16 +1,16 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Box, Text } from '../../theme';
-import assets from '../../assets';
 
+import BackgroundImage from '../../components/BackgroundImage';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Divider from '../../components/Divider';
 
 const LoginScreen = () => {
 	return (
-		<ImageBackground source={assets.images.AUTH_BACKGROUND} style={styles.image}>
+		<BackgroundImage>
 			<SafeAreaView style={styles.container}>
 				<Box flex={0.5} margin="m" justifyContent="space-between">
 					<Text variant="header">Login</Text>
@@ -23,15 +23,11 @@ const LoginScreen = () => {
 					</Box>
 				</Box>
 			</SafeAreaView>
-		</ImageBackground>
+		</BackgroundImage>
 	);
 };
 
 const styles = StyleSheet.create({
-	image: {
-		flex: 1,
-		resizeMode: 'cover',
-	},
 	container: {
 		flex: 1,
 	},

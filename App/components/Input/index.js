@@ -11,7 +11,7 @@ const Input = ({ ionicon, ...props }) => {
 			height={48}
 			borderWidth={StyleSheet.hairlineWidth}
 			borderRadius="s"
-			borderColor="mainBackground"
+			borderColor="border"
 			padding="s"
 			marginBottom="s">
 			<Icon name={ionicon} size={24} color="#4F8EF7" />

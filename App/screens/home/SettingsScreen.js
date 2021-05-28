@@ -8,7 +8,7 @@ const SettingsScreen = () => {
 	const theme = useTheme();
 	return (
 		<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
-			<ScrollView style={{ backgroundColor: theme.colors.mainBackground }}>
+			<ScrollView style={{ backgroundColor: theme.colors.background }}>
 				<Box padding="m">
 					<Text variant="body">Settings here</Text>
 				</Box>

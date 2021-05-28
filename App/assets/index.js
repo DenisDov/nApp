@@ -1,7 +1,9 @@
-const AUTH_BACKGROUND = require('./images/m-background.jpeg');
+const DARK_BACKGROUND = require('./images/dark-bg.jpg');
+const LIGHT_BACKGROUND = require('./images/light-bg.jpg');
 
 const images = {
-	AUTH_BACKGROUND,
+	DARK_BACKGROUND,
+	LIGHT_BACKGROUND,
 };
 
 export default { images };
