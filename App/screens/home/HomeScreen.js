@@ -23,7 +23,7 @@ const HomeScreen = ({ navigation }) => {
 	}
 
 	return (
-		<Box flex={1} justifyContent="center" alignItems="center">
+		<Box flex={1} justifyContent="center" alignItems="center" backgroundColor="mainBackground">
 			<Text variant="header">HOME HERE</Text>
 			<Text variant="subheader" onPress={() => navigation.navigate('Settings')}>
 				GO TO SETTINGS

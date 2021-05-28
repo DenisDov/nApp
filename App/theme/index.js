@@ -1,19 +1,17 @@
 import { createTheme, createBox, createText } from '@shopify/restyle';
 
 const palette = {
-	primary: '#026AFF',
-	darkPrimary: '#005AD4',
-
+	blue: '#026AFF',
 	black: '#0B0B0B',
-	white: '#F0F2F3',
+	lightGray: '#F0F2F3',
 };
 
 const theme = createTheme({
 	colors: {
-		mainBackground: palette.white,
-		primary: palette.primary,
-		textColor: palette.white,
-		light: palette.white,
+		mainBackground: palette.lightGray,
+		primary: palette.blue,
+		textColor: palette.black,
+		light: palette.lightGray,
 	},
 	spacing: {
 		s: 8,
@@ -47,7 +45,18 @@ const theme = createTheme({
 	},
 });
 
+const darkTheme = {
+	...theme,
+	colors: {
+		...theme.colors,
+		mainBackground: palette.black,
+		// primary: palette.blue,
+		textColor: palette.lightGray,
+		// light: palette.lightGray,
+	},
+};
+
 const Text = createText();
 const Box = createBox();
 
-export { theme, Text, Box };
+export { theme, darkTheme, Text, Box };

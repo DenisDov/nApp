@@ -3,7 +3,7 @@ import { useColorScheme, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from '@shopify/restyle';
-import { theme } from './theme';
+import { theme, darkTheme } from './theme';
 
 import AppNavigator from './Navigation';
 
@@ -17,7 +17,7 @@ const App = () => {
 
 	return (
 		<Provider store={store}>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={isDarkMode ? darkTheme : theme}>
 				<SafeAreaProvider>
 					<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 					<Network>

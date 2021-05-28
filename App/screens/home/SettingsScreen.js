@@ -1,65 +1,49 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTheme } from '@shopify/restyle';
 import { Box, Text } from '../../theme';
 
 const SettingsScreen = () => {
+	const theme = useTheme();
 	return (
 		<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
-			<ScrollView>
+			<ScrollView style={{ backgroundColor: theme.colors.mainBackground }}>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text>Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text>Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text>Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text>Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text>Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text>Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text>Settings here</Text>
+					<Text variant="body">Settings here</Text>
 				</Box>
 			</ScrollView>
 		</SafeAreaView>
