@@ -10,14 +10,13 @@ const Button = ({ text, onPress, loading }) => {
 			disabled={loading}
 			style={({ pressed }) => [
 				{
-					opacity: pressed ? 0.7 : 1,
+					backgroundColor: pressed ? theme.colors.primaryDark : theme.colors.primary,
 				},
 
 				[
 					styles.button,
 					{
 						borderRadius: theme.borderRadii.s,
-						backgroundColor: theme.colors.primary,
 						padding: theme.spacing.s,
 					},
 				],

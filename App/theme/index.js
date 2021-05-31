@@ -2,19 +2,24 @@ import { createTheme, createBox, createText } from '@shopify/restyle';
 
 const palette = {
 	blue: '#026AFF',
-	black: '#0B0B0B',
+	darkBlue: '#005AD4',
+	black: '#121212',
 	lightGray: '#F0F2F3',
-	white: '#fff',
+	white: '#ffffff',
+	red: '#B00020', // error for light theme
+	purple: '#CF6679', // error for dark theme
 };
 
 const theme = createTheme({
 	colors: {
 		primary: palette.blue,
+		primaryDark: palette.darkBlue,
 		background: palette.lightGray,
 		// card: 'rgb(255, 255, 255)',
 		text: palette.black,
 		light: palette.white,
 		border: palette.black,
+		error: palette.red,
 		// notification: 'rgb(255, 69, 58)',
 	},
 	spacing: {
@@ -56,6 +61,7 @@ const darkTheme = {
 		background: palette.black,
 		text: palette.lightGray,
 		border: palette.lightGray,
+		error: palette.purple,
 	},
 };
 
