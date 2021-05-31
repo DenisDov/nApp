@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import RNBootSplash from 'react-native-bootsplash';
 // Screens start
 import LoginScreen from '../App/screens/auth/LoginScreen';
 import RegisterScreen from '../App/screens/auth/RegisterScreen';
@@ -17,7 +18,7 @@ const AppNavigator = ({ theme }) => {
 	const { t } = useTranslation();
 	const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 	return (
-		<NavigationContainer theme={theme}>
+		<NavigationContainer theme={theme} onReady={() => RNBootSplash.hide({ fade: true })}>
 			<Stack.Navigator>
 				{!isAuthenticated ? (
 					<Stack.Group screenOptions={{ headerMode: 'none' }}>
