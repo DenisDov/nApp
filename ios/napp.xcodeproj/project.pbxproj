@@ -17,6 +17,7 @@
 		569AD2896AB34C3F8CDDB713 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC121B723E94DC9A0D1C14D /* Raleway-Regular.ttf */; };
 		79D6017E1BE741CB988E60DE /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 150894572C774F01865069D7 /* Raleway-SemiBold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F7533DFA2664EB4D001FDDC9 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7533DF92664EB4D001FDDC9 /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		CCA22DEF4EA00221EF3C9708 /* Pods-napp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-napp.debug.xcconfig"; path = "Target Support Files/Pods-napp/Pods-napp.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1E9C97EDD04B48838C5DF1 /* SquadaOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SquadaOne-Regular.ttf"; path = "../App/assets/fonts/SquadaOne-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F7533DF92664EB4D001FDDC9 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = napp/BootSplash.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		13B07FAE1A68108700A75B9A /* napp */ = {
 			isa = PBXGroup;
 			children = (
+				F7533DF92664EB4D001FDDC9 /* BootSplash.storyboard */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -262,6 +265,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				569AD2896AB34C3F8CDDB713 /* Raleway-Regular.ttf in Resources */,
+				F7533DFA2664EB4D001FDDC9 /* BootSplash.storyboard in Resources */,
 				79D6017E1BE741CB988E60DE /* Raleway-SemiBold.ttf in Resources */,
 				1C4DFD1E7E3A4EEEBE8F5EFD /* SquadaOne-Regular.ttf in Resources */,
 			);
