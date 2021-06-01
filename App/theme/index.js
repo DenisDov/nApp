@@ -1,3 +1,4 @@
+import { Image } from 'react-native';
 import { createTheme, createBox, createText } from '@shopify/restyle';
 
 const palette = {
@@ -71,5 +72,6 @@ const darkTheme = {
 
 const Text = createText();
 const Box = createBox();
+const ImageBox = createBox(Image);
 
-export { theme, darkTheme, Text, Box };
+export { theme, darkTheme, Text, Box, ImageBox };
