@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import { useTranslation } from 'react-i18next';
 
-import styles from './style';
+import { Box, Text } from '../../theme';
+import Body from '../../components/Body';
 
 const Network = ({ children }) => {
 	const [status, changeStatus] = useState(true);
@@ -18,17 +19,25 @@ const Network = ({ children }) => {
 
 	if (!status) {
 		return (
-			<View style={styles.container}>
-				<Image source={require('./lost.png')} resizeMode="contain" style={styles.image} />
-				<View>
-					<Text style={styles.header}>Oops...</Text>
-					<Text style={styles.subheader}>No internet connection</Text>
-					<Text>{t('Welcome to React')}</Text>
-				</View>
-			</View>
+			<Body>
+				<Box flex={1} justifyContent="center" alignItems="center" padding="m">
+					<Image source={require('./lost.png')} resizeMode="contain" style={styles.image} />
+					<Box>
+						<Text variant="header">{t('Oops')}</Text>
+						<Text variant="subheader">{t('No internet connection')}</Text>
+					</Box>
+				</Box>
+			</Body>
 		);
 	}
 	return children;
 };
+
+const styles = StyleSheet.create({
+	image: {
+		width: '100%',
+		height: 300,
+	},
+});
 
 export default Network;

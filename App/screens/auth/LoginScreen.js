@@ -2,15 +2,17 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Text } from '../../theme';
 
 import Body from '../../components/Body';
-import BackgroundImage from '../../components/BackgroundImage';
+// import BackgroundImage from '../../components/BackgroundImage';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Divider from '../../components/Divider';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
+	const { t } = useTranslation();
 	const {
 		control,
 		handleSubmit,
@@ -21,25 +23,26 @@ const LoginScreen = () => {
 	return (
 		<Body>
 			<SafeAreaView style={styles.container}>
-				<Box flex={0.5} margin="m" justifyContent="space-between">
-					<Text variant="header">Login</Text>
+				<Box flex={0.6} margin="m" justifyContent="space-between">
+					<Text variant="header">{t('Welcome back')}</Text>
 					<Box>
 						<Input
 							{...{ control, errors }}
 							fieldName="email"
 							ionicon="mail-outline"
-							placeholder="Email"
+							placeholder={t('emailPlaceholder')}
 						/>
 						<Input
 							{...{ control, errors }}
 							fieldName="password"
 							ionicon="lock-closed-outline"
-							placeholder="Password"
+							placeholder={t('passwordPlaceholder')}
+							secureTextEntry
 						/>
 
-						<Button text="Log in" onPress={handleSubmit(onSubmit)} />
+						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} />
 						<Divider />
-						<Button text="Sign up" />
+						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
 					</Box>
 				</Box>
 			</SafeAreaView>
