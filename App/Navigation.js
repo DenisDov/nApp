@@ -7,6 +7,7 @@ import RNBootSplash from 'react-native-bootsplash';
 // Screens start
 import LoginScreen from '../App/screens/auth/LoginScreen';
 import RegisterScreen from '../App/screens/auth/RegisterScreen';
+import ForgotPassword from '../App/screens/auth/ForgotPassword';
 
 import HomeScreen from '../App/screens/home/HomeScreen';
 import SettingsScreen from '../App/screens/home/SettingsScreen';
@@ -24,6 +25,7 @@ const AppNavigator = ({ theme }) => {
 					<Stack.Group screenOptions={{ headerMode: 'none' }}>
 						<Stack.Screen name="Login" component={LoginScreen} />
 						<Stack.Screen name="Register" component={RegisterScreen} />
+						<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
 					</Stack.Group>
 				) : (
 					<Stack.Group>

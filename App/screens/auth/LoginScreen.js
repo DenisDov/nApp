@@ -42,7 +42,14 @@ const LoginScreen = ({ navigation }) => {
 
 						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} />
 						<Divider />
-						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
+						<Button text={t('Register')} />
+						<Text
+							marginTop="m"
+							variant="body"
+							textAlign="center"
+							onPress={() => navigation.navigate('ForgotPassword')}>
+							Forgot password?
+						</Text>
 					</Box>
 				</Box>
 			</SafeAreaView>
