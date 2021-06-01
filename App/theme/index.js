@@ -39,6 +39,11 @@ const theme = createTheme({
 		tablet: 768,
 	},
 	textVariants: {
+		defaults: {
+			fontFamily: 'Raleway-Regular',
+			color: 'text',
+			fontSize: 16,
+		},
 		header: {
 			fontFamily: 'Raleway-Semibold',
 			fontSize: 34,
@@ -47,11 +52,6 @@ const theme = createTheme({
 		subheader: {
 			fontFamily: 'Raleway-Regular',
 			fontSize: 28,
-			color: 'text',
-		},
-		body: {
-			fontFamily: 'Raleway-Regular',
-			fontSize: 16,
 			color: 'text',
 		},
 	},

@@ -49,7 +49,7 @@ const Input = ({ ionicon, control, errors, fieldName, ...rest }) => {
 				rules={{ required: true }}
 				defaultValue=""
 			/>
-			{errors[fieldName] && <Text variant="body">This is required.</Text>}
+			{errors[fieldName] && <Text>This is required.</Text>}
 		</Box>
 	);
 };

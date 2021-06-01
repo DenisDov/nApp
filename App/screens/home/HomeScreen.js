@@ -33,9 +33,7 @@ const HomeScreen = ({ navigation }) => {
 				style={styles.image}
 				resizeMode="contain"
 			/>
-			<Text variant="body" numberOfLines={2}>
-				{item.title}
-			</Text>
+			<Text numberOfLines={2}>{item.title}</Text>
 		</Box>
 	);
 

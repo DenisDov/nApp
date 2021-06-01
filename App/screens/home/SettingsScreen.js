@@ -10,40 +10,34 @@ const SettingsScreen = () => {
 		<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
 			<ScrollView style={{ backgroundColor: theme.colors.background }}>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 				<Box padding="m">
-					<Text variant="body">Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text variant="body">Settings here</Text>
-				</Box>
-				<Box padding="m">
-					<Text variant="body">Settings here</Text>
+					<Text>Settings here</Text>
 				</Box>
 			</ScrollView>
 		</SafeAreaView>

@@ -45,7 +45,6 @@ const LoginScreen = ({ navigation }) => {
 						<Button text={t('Register')} />
 						<Text
 							marginTop="m"
-							variant="body"
 							textAlign="center"
 							onPress={() => navigation.navigate('ForgotPassword')}>
 							Forgot password?
