@@ -4,6 +4,7 @@ const palette = {
 	blue: '#026AFF',
 	darkBlue: '#005AD4',
 	black: '#121212',
+	gray: '#1E1E1E',
 	lightGray: '#F0F2F3',
 	white: '#ffffff',
 	red: '#B00020', // error for light theme
@@ -20,9 +21,11 @@ const theme = createTheme({
 		light: palette.white,
 		border: palette.black,
 		error: palette.red,
+		surface: palette.white,
 		// notification: 'rgb(255, 69, 58)',
 	},
 	spacing: {
+		xs: 4,
 		s: 8,
 		m: 16,
 		l: 24,
@@ -62,6 +65,7 @@ const darkTheme = {
 		text: palette.lightGray,
 		border: palette.lightGray,
 		error: palette.purple,
+		surface: palette.gray,
 	},
 };
 

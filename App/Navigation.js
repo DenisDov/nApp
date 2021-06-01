@@ -21,13 +21,7 @@ const AppNavigator = ({ theme }) => {
 	return (
 		<NavigationContainer theme={theme} onReady={() => RNBootSplash.hide({ fade: true })}>
 			<Stack.Navigator>
-				{!isAuthenticated ? (
-					<Stack.Group screenOptions={{ headerMode: 'none' }}>
-						<Stack.Screen name="Login" component={LoginScreen} />
-						<Stack.Screen name="Register" component={RegisterScreen} />
-						<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-					</Stack.Group>
-				) : (
+				{isAuthenticated ? (
 					<Stack.Group>
 						<Stack.Screen name="Home" component={HomeScreen} />
 						<Stack.Screen
@@ -35,6 +29,12 @@ const AppNavigator = ({ theme }) => {
 							component={SettingsScreen}
 							options={{ title: t('settings') }}
 						/>
+					</Stack.Group>
+				) : (
+					<Stack.Group screenOptions={{ headerMode: 'none' }}>
+						<Stack.Screen name="Login" component={LoginScreen} />
+						<Stack.Screen name="Register" component={RegisterScreen} />
+						<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
 					</Stack.Group>
 				)}
 			</Stack.Navigator>

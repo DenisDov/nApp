@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-// import { Button } from 'react-native';
+import { FlatList, Image, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getPhotosRequest } from '../../redux/ducks/photoSlice';
 
 import Loader from '../../components/Loader';
+import Body from '../../components/Body';
 
 import { Box, Text } from '../../theme';
 
@@ -22,14 +24,48 @@ const HomeScreen = ({ navigation }) => {
 		return <Loader />;
 	}
 
-	return (
-		<Box flex={1} justifyContent="center" alignItems="center" backgroundColor="background">
-			<Text variant="header">HOME HERE</Text>
-			<Text variant="subheader" onPress={() => navigation.navigate('Settings')}>
-				GO TO SETTINGS
+	const renderItem = ({ item }) => (
+		<Box flex={0.5} backgroundColor="surface" margin="xs" padding="m" borderRadius="s">
+			<Image
+				source={{
+					uri: item.url,
+				}}
+				style={styles.image}
+				resizeMode="contain"
+			/>
+			<Text variant="body" numberOfLines={2}>
+				{item.title}
 			</Text>
 		</Box>
 	);
+
+	return (
+		<Body>
+			<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
+				<FlatList
+					numColumns={2}
+					contentContainerStyle={styles.flatlist}
+					data={photos}
+					renderItem={renderItem}
+					keyExtractor={item => item.id}
+				/>
+			</SafeAreaView>
+		</Body>
+	);
 };
+
+const styles = StyleSheet.create({
+	image: {
+		width: 100,
+		height: 100,
+		marginBottom: 8,
+	},
+	container: {
+		flex: 1,
+	},
+	flatlist: {
+		marginHorizontal: 8,
+	},
+});
 
 export default HomeScreen;
