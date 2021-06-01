@@ -10,6 +10,7 @@ import RegisterScreen from '../App/screens/auth/RegisterScreen';
 import ForgotPassword from '../App/screens/auth/ForgotPassword';
 
 import HomeScreen from '../App/screens/home/HomeScreen';
+import DetailScreen from '../App/screens/home/DetailScreen';
 import SettingsScreen from '../App/screens/home/SettingsScreen';
 // Screens end
 
@@ -24,6 +25,7 @@ const AppNavigator = ({ theme }) => {
 				{isAuthenticated ? (
 					<Stack.Group>
 						<Stack.Screen name="Home" component={HomeScreen} />
+						<Stack.Screen name="Detail" component={DetailScreen} />
 						<Stack.Screen
 							name="Settings"
 							component={SettingsScreen}
