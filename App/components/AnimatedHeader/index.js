@@ -15,7 +15,7 @@ const AnimatedHeader = ({ text }) => {
 
 	useEffect(() => {
 		opacity.value = withSpring(1, {
-			duration: 600,
+			duration: 2000,
 		});
 	}, [opacity]);
 
