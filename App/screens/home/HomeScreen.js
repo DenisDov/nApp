@@ -7,6 +7,7 @@ import { getPhotosRequest } from '../../redux/ducks/photoSlice';
 
 import Loader from '../../components/Loader';
 import Body from '../../components/Body';
+import AnimatedCard from '../../components/AnimatedCard';
 
 import { Box, Text, ImageBox, TouchBox } from '../../theme';
 
@@ -49,13 +50,15 @@ const HomeScreen = ({ navigation }) => {
 	return (
 		<Body>
 			<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
-				<FlatList
-					numColumns={2}
-					contentContainerStyle={styles.flatlist}
-					data={photos}
-					renderItem={renderItem}
-					keyExtractor={item => item.id}
-				/>
+				<AnimatedCard>
+					<FlatList
+						numColumns={2}
+						contentContainerStyle={styles.flatlist}
+						data={photos}
+						renderItem={renderItem}
+						keyExtractor={item => item.id}
+					/>
+				</AnimatedCard>
 			</SafeAreaView>
 		</Body>
 	);
