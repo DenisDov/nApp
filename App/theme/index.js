@@ -7,6 +7,8 @@ import {
 	createVariant,
 } from '@shopify/restyle';
 
+import Animated from 'react-native-reanimated';
+
 const palette = {
 	blue: '#026AFF',
 	darkBlue: '#005AD4',
@@ -95,5 +97,6 @@ const TouchableBox = createRestyleComponent(
 	TouchableOpacity,
 );
 const TouchBox = createBox(TouchableBox);
+const AnimatedText = createText(Animated.Text);
 
-export { theme, darkTheme, Text, Box, ImageBox, TouchBox };
+export { theme, darkTheme, Text, Box, ImageBox, TouchBox, AnimatedText };
