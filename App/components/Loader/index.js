@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
+import { useTheme } from '@shopify/restyle';
 
-import styles from './style';
+import { Box } from '../../theme';
 
 const Loader = () => {
+	const theme = useTheme();
 	return (
-		<View style={styles.container}>
-			<ActivityIndicator size="large" color="tomato" />
-		</View>
+		<Box flex={1} backgroundColor="background" justifyContent="center" alignItems="center">
+			<ActivityIndicator size="large" color={theme.colors.primary} />
+		</Box>
 	);
 };
 

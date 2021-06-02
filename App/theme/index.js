@@ -55,6 +55,9 @@ const theme = createTheme({
 			color: 'text',
 			fontSize: 16,
 		},
+		regular: {
+			fontSize: 14,
+		},
 		header: {
 			fontFamily: 'Raleway-Semibold',
 			fontSize: 34,

@@ -5,7 +5,9 @@ import { Controller } from 'react-hook-form';
 import { useTheme } from '@shopify/restyle';
 
 import { Box, Text } from '../../theme';
+
 import isEmpty from '../../services/is-empty';
+import capitalize from '../../services/capitalize';
 
 const Input = ({ ionicon, control, errors, fieldName, ...rest }) => {
 	const theme = useTheme();
@@ -21,7 +23,7 @@ const Input = ({ ionicon, control, errors, fieldName, ...rest }) => {
 						flexDirection="row"
 						alignItems="center"
 						height={48}
-						// backgroundColor="background"
+						backgroundColor="surface"
 						borderWidth={StyleSheet.hairlineWidth}
 						borderRadius="s"
 						borderColor="border"
@@ -49,7 +51,9 @@ const Input = ({ ionicon, control, errors, fieldName, ...rest }) => {
 				rules={{ required: true }}
 				defaultValue=""
 			/>
-			{errors[fieldName] && <Text>This is required.</Text>}
+			{errors[fieldName] && (
+				<Text variant="regular">{capitalize(errors[fieldName].message, true)}</Text>
+			)}
 		</Box>
 	);
 };
@@ -59,6 +63,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		marginHorizontal: 8,
 		height: 48,
+		fontFamily: 'Raleway',
 		// color: 'white',
 	},
 });

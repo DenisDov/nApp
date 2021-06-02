@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, Pressable, ActivityIndicator, StyleSheet } from 'react-native';
+import { Pressable, ActivityIndicator, StyleSheet } from 'react-native';
 import { useTheme } from '@shopify/restyle';
+import { Text } from '../../theme';
 
 const Button = ({ text, onPress, loading }) => {
 	const theme = useTheme();

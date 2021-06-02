@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 
 import { Box, Text } from '../../theme';
@@ -14,14 +16,23 @@ import Divider from '../../components/Divider';
 import AnimatedHeader from '../../components/AnimatedHeader';
 import AnimatedCard from '../../components/AnimatedCard';
 
+const schema = yup.object().shape({
+	email: yup.string().email().required(),
+	password: yup.string().required(),
+});
+
 const LoginScreen = ({ navigation }) => {
 	const { t } = useTranslation();
+
 	const {
 		control,
 		handleSubmit,
-		// touched,
 		formState: { errors },
-	} = useForm();
+	} = useForm({
+		mode: 'onBlur',
+		resolver: yupResolver(schema),
+	});
+
 	const onSubmit = data => console.log('formdata', data);
 
 	return (

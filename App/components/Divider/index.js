@@ -8,9 +8,7 @@ const Divider = () => {
 	return (
 		<Box height={40} flexDirection="row" justifyContent="center" alignItems="center">
 			<Box flex={1} backgroundColor="text" height={StyleSheet.hairlineWidth} />
-			<Text color="text" paddingHorizontal="m">
-				{t('or')}
-			</Text>
+			<Text paddingHorizontal="m">{t('or')}</Text>
 			<Box flex={1} backgroundColor="text" height={StyleSheet.hairlineWidth} />
 		</Box>
 	);
