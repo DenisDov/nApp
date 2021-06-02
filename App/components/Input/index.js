@@ -29,7 +29,7 @@ const Input = ({ ionicon, control, errors, fieldName, ...rest }) => {
 						marginBottom="s">
 						<Icon name={ionicon} size={24} color="#4F8EF7" />
 						<TextInput
-							style={styles.input}
+							style={[styles.input, { color: theme.colors.text }]}
 							onBlur={onBlur}
 							onChangeText={val => onChange(val)}
 							value={value}
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		marginHorizontal: 8,
 		height: 48,
-		color: 'white',
+		// color: 'white',
 	},
 });
 

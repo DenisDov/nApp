@@ -8,7 +8,7 @@ import { getPhotosRequest } from '../../redux/ducks/photoSlice';
 import Loader from '../../components/Loader';
 import Body from '../../components/Body';
 
-import { Box, Text, ImageBox } from '../../theme';
+import { Box, Text, ImageBox, TouchBox } from '../../theme';
 
 const HomeScreen = ({ navigation }) => {
 	const dispatch = useDispatch();
@@ -21,16 +21,13 @@ const HomeScreen = ({ navigation }) => {
 	const photos = useSelector(state => state.photos.photos);
 
 	const renderItem = ({ item }) => (
-		<Pressable
-			onPress={() => navigation.navigate('Detail', { item })}
-			android_ripple
-			style={({ pressed }) => [
-				{
-					opacity: pressed ? 0.5 : 1,
-				},
-				styles.item,
-			]}>
-			<Box backgroundColor="surface" margin="xs" padding="m" borderRadius="s">
+		<TouchBox
+			variant="elevated"
+			flex={0.5}
+			margin="xs"
+			backgroundColor="surface"
+			onPress={() => navigation.navigate('Detail', { item })}>
+			<Box padding="s">
 				<ImageBox
 					source={{
 						uri: item.thumbnailUrl,
@@ -42,7 +39,7 @@ const HomeScreen = ({ navigation }) => {
 				/>
 				<Text numberOfLines={2}>{item.title}</Text>
 			</Box>
-		</Pressable>
+		</TouchBox>
 	);
 
 	if (isFetching) {
@@ -69,11 +66,12 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	flatlist: {
-		marginHorizontal: 8,
+		margin: 8,
 	},
-	item: {
-		flex: 0.5,
-	},
+	// item: {
+	// 	flex: 0.5,
+	// 	margin: 4,
+	// },
 });
 
 export default HomeScreen;

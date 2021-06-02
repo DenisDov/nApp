@@ -1,11 +1,18 @@
-import { Image } from 'react-native';
-import { createTheme, createBox, createText } from '@shopify/restyle';
+import { Image, TouchableOpacity } from 'react-native';
+import {
+	createTheme,
+	createBox,
+	createText,
+	createRestyleComponent,
+	createVariant,
+} from '@shopify/restyle';
 
 const palette = {
 	blue: '#026AFF',
 	darkBlue: '#005AD4',
-	black: '#121212',
+	dark: '#121212',
 	gray: '#1E1E1E',
+	black: '#000000',
 	lightGray: '#F0F2F3',
 	white: '#ffffff',
 	red: '#B00020', // error for light theme
@@ -16,13 +23,14 @@ const theme = createTheme({
 	colors: {
 		primary: palette.blue,
 		primaryDark: palette.darkBlue,
-		background: palette.lightGray,
+		background: palette.white,
 		// card: 'rgb(255, 255, 255)',
 		text: palette.black,
 		light: palette.white,
-		border: palette.black,
+		border: palette.dark,
 		error: palette.red,
 		surface: palette.white,
+		shadow: palette.black,
 		// notification: 'rgb(255, 69, 58)',
 	},
 	spacing: {
@@ -56,14 +64,23 @@ const theme = createTheme({
 			color: 'text',
 		},
 	},
+	cardVariants: {
+		elevated: {
+			shadowColor: palette.shadow,
+			shadowOpacity: 0.2,
+			shadowOffset: { width: 0, height: 5 },
+			shadowRadius: 15,
+			elevation: 5,
+		},
+	},
 });
 
 const darkTheme = {
 	...theme,
 	colors: {
 		...theme.colors,
-		background: palette.black,
-		text: palette.lightGray,
+		background: palette.dark,
+		text: palette.white,
 		border: palette.lightGray,
 		error: palette.purple,
 		surface: palette.gray,
@@ -73,5 +90,10 @@ const darkTheme = {
 const Text = createText();
 const Box = createBox();
 const ImageBox = createBox(Image);
+const TouchableBox = createRestyleComponent(
+	[createVariant({ themeKey: 'cardVariants' })],
+	TouchableOpacity,
+);
+const TouchBox = createBox(TouchableBox);
 
-export { theme, darkTheme, Text, Box, ImageBox };
+export { theme, darkTheme, Text, Box, ImageBox, TouchBox };
