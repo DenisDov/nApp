@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-
+// import
 import { useSharedValue, useAnimatedStyle, withTiming, withSpring } from 'react-native-reanimated';
 
-import { AnimatedText } from '../../theme';
+import { AnimatedBox } from '../../theme';
 
-const AnimatedHeader = ({ text }) => {
+const AnimatedCard = ({ children }) => {
 	const opacity = useSharedValue(0);
 	const translate = useSharedValue(20);
 
@@ -20,11 +20,7 @@ const AnimatedHeader = ({ text }) => {
 		translate.value = withTiming(0);
 	}, [opacity, translate]);
 
-	return (
-		<AnimatedText variant="header" style={animatedStyle}>
-			{text}
-		</AnimatedText>
-	);
+	return <AnimatedBox style={animatedStyle}>{children}</AnimatedBox>;
 };
 
-export default AnimatedHeader;
+export default AnimatedCard;

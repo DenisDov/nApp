@@ -7,6 +7,7 @@ import BackgroundImage from '../../components/BackgroundImage';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Divider from '../../components/Divider';
+import AnimatedCard from '../../components/AnimatedCard';
 
 const ForgotPassword = ({ navigation }) => {
 	return (
@@ -14,7 +15,7 @@ const ForgotPassword = ({ navigation }) => {
 			<SafeAreaView style={styles.container}>
 				<Box flex={1} margin="m" justifyContent="space-between">
 					<Text variant="header">Reset Password</Text>
-					<Box>
+					<AnimatedCard>
 						{/* <Input
 							{...{ control, errors }}
 							fieldName="email"
@@ -26,7 +27,7 @@ const ForgotPassword = ({ navigation }) => {
 						<Button text="Reset" />
 						<Divider />
 						<Button text="Log in" onPress={() => navigation.navigate('Login')} />
-					</Box>
+					</AnimatedCard>
 				</Box>
 			</SafeAreaView>
 		</BackgroundImage>

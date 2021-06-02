@@ -97,6 +97,7 @@ const TouchableBox = createRestyleComponent(
 	TouchableOpacity,
 );
 const TouchBox = createBox(TouchableBox);
+const AnimatedBox = createBox(Animated.View);
 const AnimatedText = createText(Animated.Text);
 
-export { theme, darkTheme, Text, Box, ImageBox, TouchBox, AnimatedText };
+export { theme, darkTheme, Text, Box, ImageBox, TouchBox, AnimatedBox, AnimatedText };

@@ -12,6 +12,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Divider from '../../components/Divider';
 import AnimatedHeader from '../../components/AnimatedHeader';
+import AnimatedCard from '../../components/AnimatedCard';
 
 const LoginScreen = ({ navigation }) => {
 	const { t } = useTranslation();
@@ -28,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
 			<SafeAreaView style={styles.container}>
 				<Box flex={1} margin="m" justifyContent="space-between">
 					<AnimatedHeader text={t('Welcome back')} />
-					<Box>
+					<AnimatedCard>
 						<Input
 							{...{ control, errors }}
 							fieldName="email"
@@ -52,7 +53,7 @@ const LoginScreen = ({ navigation }) => {
 							onPress={() => navigation.navigate('ForgotPassword')}>
 							Forgot password?
 						</Text>
-					</Box>
+					</AnimatedCard>
 				</Box>
 			</SafeAreaView>
 		</BackgroundImage>
