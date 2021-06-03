@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
 		height: 40,
 		justifyContent: 'center',
 		alignItems: 'center',
+		elevation: 2,
 	},
 });
 

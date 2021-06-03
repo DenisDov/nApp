@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		marginHorizontal: 8,
 		height: 48,
-		fontFamily: 'Raleway',
+		fontFamily: 'Raleway-Regular',
 		// color: 'white',
 	},
 });
