@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -37,6 +37,7 @@ const LoginScreen = ({ navigation }) => {
 
 	return (
 		<BackgroundImage>
+			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" translucent />}
 			<SafeAreaView style={styles.container}>
 				<Box flex={1} margin="m" justifyContent="space-between">
 					<AnimatedHeader text={t('Welcome back')} />

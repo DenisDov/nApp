@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FlatList, StyleSheet, Pressable } from 'react-native';
+import { FlatList, StyleSheet, Platform, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -49,6 +49,7 @@ const HomeScreen = ({ navigation }) => {
 
 	return (
 		<Body>
+			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" translucent />}
 			<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
 				<AnimatedCard>
 					<FlatList

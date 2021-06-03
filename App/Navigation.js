@@ -25,7 +25,14 @@ const AppNavigator = ({ theme }) => {
 				{isAuthenticated ? (
 					<Stack.Group>
 						<Stack.Screen name="Home" component={HomeScreen} />
-						<Stack.Screen name="Detail" component={DetailScreen} />
+						<Stack.Screen
+							name="Detail"
+							component={DetailScreen}
+							options={{
+								headerTransparent: true,
+								headerTitle: '',
+							}}
+						/>
 						<Stack.Screen
 							name="Settings"
 							component={SettingsScreen}

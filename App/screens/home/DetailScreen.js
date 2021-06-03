@@ -12,16 +12,17 @@ const DetailScreen = ({ route }) => {
 		<Body>
 			<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
 				<ScrollView style={styles.scrollView}>
-					<Box backgroundColor="surface" padding="m">
+					<Box>
 						<ImageBox
 							source={{
 								uri: item.url,
 							}}
 							width="100%"
 							aspectRatio={1}
-							marginBottom="m"
 						/>
-						<Text>{item.title}</Text>
+						<Box padding="m">
+							<Text>{item.title}</Text>
+						</Box>
 					</Box>
 				</ScrollView>
 			</SafeAreaView>
