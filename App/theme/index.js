@@ -59,7 +59,7 @@ const theme = createTheme({
 			fontSize: 14,
 		},
 		header: {
-			fontFamily: 'Raleway-Semibold',
+			fontFamily: 'Raleway-SemiBold',
 			fontSize: 34,
 			color: 'text',
 		},
