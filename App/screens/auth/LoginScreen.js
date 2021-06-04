@@ -13,8 +13,6 @@ import BackgroundImage from '../../components/BackgroundImage';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Divider from '../../components/Divider';
-import AnimatedHeader from '../../components/AnimatedHeader';
-import AnimatedCard from '../../components/AnimatedCard';
 
 const schema = yup.object().shape({
 	email: yup.string().email().required(),
@@ -37,11 +35,11 @@ const LoginScreen = ({ navigation }) => {
 
 	return (
 		<BackgroundImage>
-			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" translucent />}
+			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" />}
 			<SafeAreaView style={styles.container}>
 				<Box flex={1} margin="m" justifyContent="space-between">
-					<AnimatedHeader text={t('Welcome back')} />
-					<AnimatedCard>
+					<Text variant="header">{t('Welcome back')}</Text>
+					<Box>
 						<Input
 							{...{ control, errors }}
 							fieldName="email"
@@ -65,7 +63,7 @@ const LoginScreen = ({ navigation }) => {
 							onPress={() => navigation.navigate('ForgotPassword')}>
 							Forgot password?
 						</Text>
-					</AnimatedCard>
+					</Box>
 				</Box>
 			</SafeAreaView>
 		</BackgroundImage>

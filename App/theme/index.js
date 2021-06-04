@@ -75,7 +75,7 @@ const theme = createTheme({
 			shadowOpacity: 0.2,
 			shadowOffset: { width: 0, height: 5 },
 			shadowRadius: 15,
-			elevation: 5,
+			elevation: 3,
 		},
 	},
 });

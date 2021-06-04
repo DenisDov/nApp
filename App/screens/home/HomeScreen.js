@@ -49,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
 
 	return (
 		<Body>
-			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" translucent />}
+			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" />}
 			<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
 				<AnimatedCard>
 					<FlatList
