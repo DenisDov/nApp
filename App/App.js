@@ -19,8 +19,8 @@ const App = () => {
 	return (
 		<Provider store={store}>
 			<ThemeProvider theme={isDarkMode ? darkTheme : theme}>
+				<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 				<SafeAreaProvider>
-					<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 					<Network>
 						<AppNavigator theme={isDarkMode ? DarkTheme : DefaultTheme} />
 					</Network>
