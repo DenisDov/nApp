@@ -20,9 +20,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		resizeMode: 'cover',
 	},
-	container: {
-		flex: 1,
-	},
 });
 
 export default BackgroundImage;
