@@ -8,5 +8,5 @@ export default {
 	or: 'or',
 	emailPlaceholder: 'Email',
 	passwordPlaceholder: 'Password',
-	settings: 'Настройки',
+	settings: 'Settings',
 };
