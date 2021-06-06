@@ -5,7 +5,7 @@ const photoSlice = createSlice({
 	initialState: {
 		user: {},
 		token: null,
-		isAuthenticated: false,
+		isAuthenticated: true,
 		fetching: true,
 		error: null,
 	},
