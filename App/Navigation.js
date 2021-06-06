@@ -28,17 +28,18 @@ const AppTabs = () => {
 		<Tab.Navigator
 			activeColor="#f0edf6"
 			inactiveColor="#3e2465"
+			labeled={false}
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color }) => {
 					let iconName;
 
 					if (route.name === 'HomeTab') {
-						iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
+						iconName = focused ? 'ios-home' : 'ios-home-outline';
 					} else if (route.name === 'SettingsTab') {
-						iconName = focused ? 'ios-list-box' : 'ios-list';
+						iconName = focused ? 'settings-sharp' : 'settings-outline';
 					}
 
-					return <Ionicons name={iconName} size={26} color={color} />;
+					return <Ionicons name={iconName} size={24} color={color} />;
 				},
 			})}>
 			<Tab.Screen name="HomeTab" component={HomeScreen} />
