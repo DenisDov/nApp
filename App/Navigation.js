@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ import DetailScreen from '../App/screens/home/DetailScreen';
 import SettingsScreen from '../App/screens/home/SettingsScreen';
 // Screens end
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = () => {
@@ -27,9 +27,11 @@ const HomeStack = () => {
 			<Stack.Screen
 				name="Detail"
 				component={DetailScreen}
+				// presentation="transparentModal"
 				options={{
-					headerTransparent: true,
+					headerTranslucent: true,
 					headerTitle: '',
+					headerShadowVisible: false,
 				}}
 			/>
 		</Stack.Navigator>

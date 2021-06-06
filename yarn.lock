@@ -1459,6 +1459,14 @@
   dependencies:
     "@react-navigation/elements" "^1.0.0-next.17"
 
+"@react-navigation/native-stack@^6.0.0-next.7":
+  version "6.0.0-next.7"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.0.0-next.7.tgz#8d3cabd6b984af4fc9ca5a948a89423cda427b6d"
+  integrity sha512-YW8POqzYG28Qt8RxxVOSmDJoQ0UHnJlI74gYHKKKU4v77rT20UhN/ESB6mztBmsrMkQbrlYYIL90AU2sCQ729w==
+  dependencies:
+    "@react-navigation/elements" "^1.0.0-next.17"
+    warn-once "^0.1.0"
+
 "@react-navigation/native@^6.0.0-next.8":
   version "6.0.0-next.8"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.0.0-next.8.tgz#0cc4835a608715d2c3c582276d3b13b6d744a464"
