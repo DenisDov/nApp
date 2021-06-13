@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -21,8 +21,22 @@ import SettingsScreen from '../App/screens/home/SettingsScreen';
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
+function getHeaderTitle(route) {
+	// If the focused route is not found, we need to assume it's the initial screen
+	// This can happen during if there hasn't been any navigation inside the screen
+	// In our case, it's "Home" as that's the first screen inside the navigator
+	const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+
+	switch (routeName) {
+		case 'HomeTab':
+			return 'Home';
+		case 'SettingsTab':
+			return 'Settings';
+	}
+}
+
 const AppTabs = () => {
-	const { t } = useTranslation();
+	// const { t } = useTranslation();
 	// const theme = useTheme();
 	return (
 		<Tab.Navigator
@@ -43,11 +57,7 @@ const AppTabs = () => {
 				},
 			})}>
 			<Tab.Screen name="HomeTab" component={HomeScreen} />
-			<Tab.Screen
-				name="SettingsTab"
-				component={SettingsScreen}
-				options={{ title: t('settings') }}
-			/>
+			<Tab.Screen name="SettingsTab" component={SettingsScreen} />
 		</Tab.Navigator>
 	);
 };
@@ -59,7 +69,13 @@ const AppNavigator = ({ theme }) => {
 			<Stack.Navigator>
 				{isAuthenticated ? (
 					<Stack.Group>
-						<Stack.Screen name="Home" component={AppTabs} />
+						<Stack.Screen
+							name="Home"
+							component={AppTabs}
+							options={({ route }) => ({
+								headerTitle: getHeaderTitle(route),
+							})}
+						/>
 						<Stack.Screen
 							name="Detail"
 							component={DetailScreen}
