@@ -85,7 +85,7 @@ const AppNavigator = ({ theme }) => {
 						/>
 					</Stack.Group>
 				) : (
-					<Stack.Group screenOptions={{ headerMode: 'none' }}>
+					<Stack.Group screenOptions={{ headerShown: false }}>
 						<Stack.Screen name="Login" component={LoginScreen} />
 						<Stack.Screen name="Register" component={RegisterScreen} />
 						<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
