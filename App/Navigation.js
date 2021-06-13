@@ -4,10 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 // import { useTheme } from '@shopify/restyle';
+
+import i18n from './i18n';
 // Screens start
 import LoginScreen from '../App/screens/auth/LoginScreen';
 import RegisterScreen from '../App/screens/auth/RegisterScreen';
@@ -24,20 +25,17 @@ const Tab = createMaterialBottomTabNavigator();
 function getHeaderTitle(route) {
 	// If the focused route is not found, we need to assume it's the initial screen
 	// This can happen during if there hasn't been any navigation inside the screen
-	// In our case, it's "Home" as that's the first screen inside the navigator
 	const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
 
 	switch (routeName) {
 		case 'HomeTab':
 			return 'Home';
 		case 'SettingsTab':
-			return 'Settings';
+			return i18n.t('settings');
 	}
 }
 
 const AppTabs = () => {
-	// const { t } = useTranslation();
-	// const theme = useTheme();
 	return (
 		<Tab.Navigator
 			activeColor="#f0edf6"
