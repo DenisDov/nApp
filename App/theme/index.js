@@ -70,12 +70,16 @@ const theme = createTheme({
 		},
 	},
 	cardVariants: {
+		defaults: {
+			borderRadius: 's',
+			backgroundColor: 'surface',
+		},
 		elevated: {
-			shadowColor: palette.shadow,
+			shadowColor: 'shadow',
 			shadowOpacity: 0.2,
 			shadowOffset: { width: 0, height: 5 },
 			shadowRadius: 15,
-			elevation: 2,
+			elevation: 5,
 		},
 	},
 });
@@ -94,13 +98,10 @@ const darkTheme = {
 
 const Text = createText();
 const Box = createBox();
+const Card = createRestyleComponent([createVariant({ themeKey: 'cardVariants' })], Box);
 const ImageBox = createBox(Image);
-const TouchableBox = createRestyleComponent(
-	[createVariant({ themeKey: 'cardVariants' })],
-	TouchableOpacity,
-);
-const TouchBox = createBox(TouchableBox);
+// const TouchBox = createBox(TouchableBox);
 const AnimatedBox = createBox(Animated.View);
 const AnimatedText = createText(Animated.Text);
 
-export { theme, darkTheme, Text, Box, ImageBox, TouchBox, AnimatedBox, AnimatedText };
+export { theme, darkTheme, Text, Box, Card, ImageBox, AnimatedBox, AnimatedText };

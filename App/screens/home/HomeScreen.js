@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FlatList, StyleSheet, Platform, StatusBar } from 'react-native';
+import { FlatList, StyleSheet, Platform, StatusBar, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -9,7 +9,7 @@ import Loader from '../../components/Loader';
 import Body from '../../components/Body';
 import AnimatedCard from '../../components/AnimatedCard';
 
-import { Box, Text, ImageBox, TouchBox } from '../../theme';
+import { Box, Text, ImageBox, Card } from '../../theme';
 
 const HomeScreen = ({ navigation }) => {
 	const dispatch = useDispatch();
@@ -22,25 +22,29 @@ const HomeScreen = ({ navigation }) => {
 	const photos = useSelector(state => state.photos.photos);
 
 	const renderItem = ({ item }) => (
-		<TouchBox
-			variant="elevated"
-			flex={0.5}
-			margin="xs"
-			backgroundColor="surface"
-			onPress={() => navigation.navigate('Detail', { item })}>
-			<Box padding="s">
-				<ImageBox
-					source={{
-						uri: item.thumbnailUrl,
-					}}
-					width={100}
-					height={100}
-					marginBottom="s"
-					resizeMode="contain"
-				/>
-				<Text numberOfLines={2}>{item.title}</Text>
-			</Box>
-		</TouchBox>
+		<Pressable
+			onPress={() => navigation.navigate('Detail', { item })}
+			style={({ pressed }) => [
+				{
+					opacity: pressed ? 0.5 : 1,
+				},
+				styles.pressable,
+			]}>
+			<Card variant="elevated">
+				<Box padding="s">
+					<ImageBox
+						source={{
+							uri: item.thumbnailUrl,
+						}}
+						width={100}
+						height={100}
+						marginBottom="s"
+						resizeMode="contain"
+					/>
+					<Text numberOfLines={2}>{item.title}</Text>
+				</Box>
+			</Card>
+		</Pressable>
 	);
 
 	if (isFetching) {
@@ -72,10 +76,10 @@ const styles = StyleSheet.create({
 	flatlist: {
 		margin: 8,
 	},
-	// item: {
-	// 	flex: 0.5,
-	// 	margin: 4,
-	// },
+	pressable: {
+		flex: 0.5,
+		margin: 4,
+	},
 });
 
 export default HomeScreen;
