@@ -82,6 +82,7 @@ const AppNavigator = ({ theme }) => {
 								headerTranslucent: true,
 								headerTitle: '',
 								headerShadowVisible: false,
+								headerBackTitleVisible: false,
 							}}
 						/>
 					</Stack.Group>
