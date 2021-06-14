@@ -36,24 +36,25 @@ function getHeaderTitle(route) {
 }
 
 const AppTabs = () => {
+	const screenOptions = ({ route }) => ({
+		tabBarIcon: ({ focused, color }) => {
+			let iconName;
+
+			if (route.name === 'HomeTab') {
+				iconName = focused ? 'ios-home' : 'ios-home-outline';
+			} else if (route.name === 'SettingsTab') {
+				iconName = focused ? 'settings-sharp' : 'settings-outline';
+			}
+
+			return <Ionicons name={iconName} size={24} color={color} />;
+		},
+	});
 	return (
 		<Tab.Navigator
 			activeColor="#f0edf6"
 			inactiveColor="#3e2465"
 			labeled={false}
-			screenOptions={({ route }) => ({
-				tabBarIcon: ({ focused, color }) => {
-					let iconName;
-
-					if (route.name === 'HomeTab') {
-						iconName = focused ? 'ios-home' : 'ios-home-outline';
-					} else if (route.name === 'SettingsTab') {
-						iconName = focused ? 'settings-sharp' : 'settings-outline';
-					}
-
-					return <Ionicons name={iconName} size={24} color={color} />;
-				},
-			})}>
+			screenOptions={screenOptions}>
 			<Tab.Screen name="HomeTab" component={HomeScreen} />
 			<Tab.Screen name="SettingsTab" component={SettingsScreen} />
 		</Tab.Navigator>
