@@ -40,6 +40,9 @@ const HomeScreen = ({ navigation }) => {
 						marginBottom="s"
 						resizeMode="contain"
 					/>
+					<Text numberOfLines={1} variant="title" marginBottom="xs">
+						{item.title}
+					</Text>
 					<Text numberOfLines={2}>{item.title}</Text>
 				</Box>
 			</Card>

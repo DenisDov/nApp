@@ -68,6 +68,10 @@ const theme = createTheme({
 			fontSize: 28,
 			color: 'text',
 		},
+		title: {
+			fontFamily: 'SquadaOne-Regular',
+			fontSize: 18,
+		},
 	},
 	cardVariants: {
 		defaults: {

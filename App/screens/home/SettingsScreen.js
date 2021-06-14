@@ -10,7 +10,9 @@ const SettingsScreen = () => {
 			<ScrollView style={styles.scrollView}>
 				<Card variant="elevated" marginHorizontal="s" marginBottom="s">
 					<Box padding="s">
-						<Text>Units</Text>
+						<Text variant="title" marginBottom="m">
+							Units
+						</Text>
 						<Box flexDirection="row" alignItems="center" justifyContent="space-between">
 							<Text>Speed</Text>
 							<Text>km/h</Text>
@@ -19,7 +21,9 @@ const SettingsScreen = () => {
 				</Card>
 				<Card variant="elevated" marginHorizontal="s" marginBottom="s">
 					<Box padding="s">
-						<Text>Weather</Text>
+						<Text variant="title" marginBottom="m">
+							Weather
+						</Text>
 						<Box flexDirection="row" alignItems="center" justifyContent="space-between">
 							<Text>Wind speed</Text>
 							<Text>m/s</Text>
