@@ -12,6 +12,14 @@ import Network from './components/Network';
 
 import store from './redux/configureStore';
 
+const navTheme = {
+	...DefaultTheme,
+	colors: {
+		...DefaultTheme.colors,
+		background: 'black',
+	},
+};
+
 const App = () => {
 	const isDarkMode = useColorScheme() === 'dark';
 	console.log('isDarkMode: ', isDarkMode);
@@ -22,7 +30,7 @@ const App = () => {
 				<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 				<SafeAreaProvider>
 					<Network>
-						<AppNavigator theme={isDarkMode ? DarkTheme : DefaultTheme} />
+						<AppNavigator theme={isDarkMode ? DarkTheme : navTheme} />
 					</Network>
 				</SafeAreaProvider>
 			</ThemeProvider>
