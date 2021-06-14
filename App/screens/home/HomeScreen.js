@@ -67,11 +67,8 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
 	flatlist: {
-		margin: 8,
+		padding: 8,
 	},
 	pressable: {
 		flex: 0.5,
