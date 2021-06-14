@@ -73,6 +73,9 @@ const AppNavigator = ({ theme }) => {
 							component={AppTabs}
 							options={({ route }) => ({
 								headerTitle: getHeaderTitle(route),
+								headerTitleStyle: {
+									fontFamily: 'SquadaOne-Regular',
+								},
 							})}
 						/>
 						<Stack.Screen
