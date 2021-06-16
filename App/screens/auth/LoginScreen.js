@@ -5,6 +5,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
+// import auth from '@react-native-firebase/auth';
+import {loginRequest} from '../../redux/ducks/authSlice'
+import {useSelector, useDispatch} from 'react-redux'
 
 import { Box, Text } from '../../theme';
 
@@ -16,7 +19,10 @@ import Divider from '../../components/Divider';
 
 const schema = yup.object().shape({
 	email: yup.string().email().required(),
-	password: yup.string().required(),
+	password: yup
+		.string()
+		.min(6, ({ min }) => `Password must be at least ${min} characters`)
+		.required(),
 });
 
 const LoginScreen = ({ navigation }) => {
@@ -31,7 +37,13 @@ const LoginScreen = ({ navigation }) => {
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit = data => console.log('formdata', data);
+	const dispatch = useDispatch();
+	const loading = useSelector(state => state.auth.loading);
+
+	const onSubmit = data => {
+		console.log('data: ', data);
+		dispatch(loginRequest(data));
+	};
 
 	return (
 		<BackgroundImage>
@@ -54,7 +66,7 @@ const LoginScreen = ({ navigation }) => {
 							secureTextEntry
 						/>
 
-						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} />
+						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} loading={loading} />
 						<Divider />
 						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
 						<Text

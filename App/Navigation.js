@@ -1,12 +1,16 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 // import { useTheme } from '@shopify/restyle';
+import auth from '@react-native-firebase/auth';
+
+import { setUser } from './redux/ducks/authSlice';
+import isEmpty from './services/is-empty';
 
 import i18n from './i18n';
 // Screens start
@@ -62,11 +66,31 @@ const AppTabs = () => {
 };
 
 const AppNavigator = ({ theme }) => {
-	const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+	const user = useSelector(state => state.auth.user);
+	const initializing = useSelector(state => state.auth.initializing);
+
+	const dispatch = useDispatch();
+
+	function onAuthStateChanged(credentials) {
+		console.log('credentials: ', credentials);
+		dispatch(setUser(credentials));
+	}
+
+	useEffect(() => {
+		const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+		return subscriber;
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	// if (initializing) {
+	// 	return null;
+	// }
+
+	console.log('userHOMRE: ', user);
 	return (
-		<NavigationContainer theme={theme} onReady={() => RNBootSplash.hide({ fade: true })}>
+		<NavigationContainer theme={theme} onReady={() => RNBootSplash.hide()}>
 			<Stack.Navigator>
-				{isAuthenticated ? (
+				{!isEmpty(user) ? (
 					<Stack.Group>
 						<Stack.Screen
 							name="Home"

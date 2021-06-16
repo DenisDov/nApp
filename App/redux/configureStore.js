@@ -11,8 +11,11 @@ const reducer = combineReducers({
 	auth: authReducer,
 	photos: photosReducer,
 });
-
-const middleware = [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];
+// TODO: fix serializableCheck
+const middleware = [
+	...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
+	sagaMiddleware,
+];
 
 if (process.env.NODE_ENV === 'development') {
 	const { createLogger } = require('redux-logger');
