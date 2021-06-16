@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -6,6 +6,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useSelector, useDispatch } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
+import LottieView from 'lottie-react-native';
 // import { useTheme } from '@shopify/restyle';
 import auth from '@react-native-firebase/auth';
 
@@ -66,10 +67,9 @@ const AppTabs = () => {
 };
 
 const AppNavigator = ({ theme }) => {
+	const dispatch = useDispatch();
 	const user = useSelector(state => state.auth.user);
 	const initializing = useSelector(state => state.auth.initializing);
-
-	const dispatch = useDispatch();
 
 	function onAuthStateChanged(credentials) {
 		console.log('credentials: ', credentials);
@@ -82,9 +82,16 @@ const AppNavigator = ({ theme }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	// if (initializing) {
-	// 	return null;
-	// }
+	if (initializing) {
+		return (
+			<LottieView
+				source={require('./assets/lottie.json')}
+				autoPlay
+				loop
+				style={{ backgroundColor: '#003144' }}
+			/>
+		);
+	}
 
 	console.log('userHOMRE: ', user);
 	return (
