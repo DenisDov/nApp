@@ -11,6 +11,14 @@ const reducer = combineReducers({
 	auth: authReducer,
 	photos: photosReducer,
 });
+
+// const reducer = (state, action) => {
+// 	if (action.type === 'auth/logout') {
+// 		state = undefined;
+// 	}
+// 	return combinedReducer(state, action);
+// };
+
 // TODO: fix serializableCheck
 const middleware = [
 	...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
