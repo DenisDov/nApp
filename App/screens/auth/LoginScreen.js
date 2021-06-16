@@ -6,8 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 // import auth from '@react-native-firebase/auth';
-import {loginRequest} from '../../redux/ducks/authSlice'
-import {useSelector, useDispatch} from 'react-redux'
+import { loginRequest } from '../../redux/ducks/authSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Box, Text } from '../../theme';
 
