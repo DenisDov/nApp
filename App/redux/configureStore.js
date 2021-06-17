@@ -12,22 +12,15 @@ const reducer = combineReducers({
 	photos: photosReducer,
 });
 
-// const reducer = (state, action) => {
-// 	if (action.type === 'auth/logout') {
-// 		state = undefined;
-// 	}
-// 	return combinedReducer(state, action);
-// };
-
 // TODO: fix serializableCheck
 const middleware = [
 	...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
 	sagaMiddleware,
 ];
 
-if (process.env.NODE_ENV === 'development') {
-	const { createLogger } = require('redux-logger');
-	middleware.push(createLogger({ collapsed: true }));
+if (__DEV__) {
+	const createDebugger = require('redux-flipper').default;
+	middleware.push(createDebugger());
 }
 
 const store = configureStore({
