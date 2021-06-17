@@ -6,7 +6,7 @@ import { Card, Box, Text } from '../../theme';
 import Body from '../../components/Body';
 import Button from '../../components/Button';
 
-import { logout } from '../../redux/ducks/authSlice';
+import { logoutRequest } from '../../redux/ducks/authSlice';
 
 const SettingsScreen = () => {
 	const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const SettingsScreen = () => {
 					</Box>
 				</Card>
 				<Box margin="s">
-					<Button text="Logout" onPress={() => dispatch(logout())} />
+					<Button text="Logout" onPress={() => dispatch(logoutRequest())} />
 				</Box>
 			</ScrollView>
 		</Body>

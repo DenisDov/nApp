@@ -2,7 +2,7 @@ import { cps, call, apply, put, delay } from 'redux-saga/effects';
 import auth from '@react-native-firebase/auth';
 // import RNBootSplash from 'react-native-bootsplash';
 
-import { setUserSuccess, loginSuccess, loginFailure, logout } from '../../ducks/authSlice';
+import { setUserSuccess, loginSuccess, loginFailure, logoutSuccess } from '../../ducks/authSlice';
 
 // export function* setUser(user) {
 // 	console.log('userSAGFA: ', user);
@@ -47,7 +47,7 @@ export function* loginSaga({ payload }) {
 export function* logoutSaga() {
 	try {
 		yield auth().signOut();
-		yield put(logout());
+		yield put(logoutSuccess());
 	} catch (e) {
 		console.log('e: ', e);
 		// yield put(loginFailure({ message: e.message }));
