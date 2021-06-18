@@ -65,10 +65,9 @@ const AppTabs = () => {
 };
 
 const AppNavigator = ({ theme }) => {
+	const [initializing, setInitializing] = useState(true);
 	const dispatch = useDispatch();
 	const isAuthenticated = !isEmpty(useSelector(state => state.auth.user));
-
-	const [initializing, setInitializing] = useState(true);
 
 	function onAuthStateChanged(user) {
 		dispatch(setUser(user));
