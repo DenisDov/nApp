@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { Card, Box, Text } from '../../theme';
 
@@ -11,6 +11,22 @@ import { logoutRequest } from '../../redux/ducks/authSlice';
 const SettingsScreen = () => {
 	const dispatch = useDispatch();
 	const user = useSelector(state => state.auth.user);
+
+	const logout = () => {
+		Alert.alert(
+			'Logout',
+			'Are you sure?',
+			[
+				{
+					text: 'Cancel',
+					onPress: () => null,
+					style: 'cancel',
+				},
+				{ text: 'OK', onPress: () => dispatch(logoutRequest()) },
+			],
+			{ cancelable: false },
+		);
+	};
 
 	return (
 		<Body>
@@ -53,7 +69,7 @@ const SettingsScreen = () => {
 					</Box>
 				</Card>
 				<Box margin="s">
-					<Button text="Logout" onPress={() => dispatch(logoutRequest())} />
+					<Button text="Logout" onPress={logout} />
 				</Box>
 			</ScrollView>
 		</Body>
