@@ -38,9 +38,16 @@ export function* loginSaga({ payload }) {
 	try {
 		const user = yield auth().signInWithEmailAndPassword(email, password);
 		console.log('userS: ', user);
-	} catch (e) {
-		console.log('loginFailure CATCh: ', e);
-		yield put(loginFailure({ message: e.message }));
+	} catch (error) {
+		let message;
+		switch (error.code) {
+			case 'auth/user-not-found':
+				message = 'Account not exist, please sign up';
+				break;
+			default:
+				message = null;
+		}
+		yield put(loginFailure(message));
 	}
 }
 
