@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useSelector, useDispatch } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 import LottieView from 'lottie-react-native';
-// import { useTheme } from '@shopify/restyle';
 import auth from '@react-native-firebase/auth';
 
 import { setUser } from './redux/ducks/authSlice';
@@ -68,12 +66,13 @@ const AppTabs = () => {
 
 const AppNavigator = ({ theme }) => {
 	const dispatch = useDispatch();
-	const user = useSelector(state => state.auth.user);
-	const initializing = useSelector(state => state.auth.initializing);
+	const isAuthenticated = !isEmpty(useSelector(state => state.auth.user));
 
-	function onAuthStateChanged(credentials) {
-		console.log('credentials: ', credentials);
-		dispatch(setUser(credentials));
+	const [initializing, setInitializing] = useState(true);
+
+	function onAuthStateChanged(user) {
+		dispatch(setUser(user));
+		if (initializing) setInitializing(false);
 	}
 
 	useEffect(() => {
@@ -93,11 +92,10 @@ const AppNavigator = ({ theme }) => {
 		);
 	}
 
-	console.log('userHOMRE: ', user);
 	return (
 		<NavigationContainer theme={theme} onReady={() => RNBootSplash.hide()}>
 			<Stack.Navigator>
-				{!isEmpty(user) ? (
+				{isAuthenticated ? (
 					<Stack.Group>
 						<Stack.Screen
 							name="Home"
