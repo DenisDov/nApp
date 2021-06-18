@@ -1,5 +1,6 @@
 import React from 'react';
-import { Pressable, ActivityIndicator, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import { useTheme } from '@shopify/restyle';
 import { Text } from '../../theme';
 
