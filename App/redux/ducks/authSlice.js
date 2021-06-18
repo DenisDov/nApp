@@ -6,12 +6,11 @@ const authSlice = createSlice({
 		user: null,
 		loading: false,
 		error: null,
-		initializing: true,
 	},
 	reducers: {
 		setUser(state, action) {
 			const user = action.payload;
-			return { ...state, user, initializing: false, loading: false, error: null };
+			return { ...state, user, loading: false, error: null };
 		},
 		loginRequest(state, action) {
 			return { ...state, loading: true };
@@ -26,7 +25,7 @@ const authSlice = createSlice({
 		},
 		logoutRequest() {},
 		logoutSuccess(state) {
-			return { ...state, user: null, error: null, initializing: false };
+			return { ...state, user: null, error: null };
 		},
 	},
 });
