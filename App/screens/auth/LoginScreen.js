@@ -50,9 +50,9 @@ const LoginScreen = ({ navigation }) => {
 		<BackgroundImage>
 			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" />}
 			<SafeAreaView style={styles.container}>
-				<Box flex={1} margin="m" justifyContent="space-between">
+				<Box flex={1} margin="m">
 					<Text variant="header">{t('Welcome back')}</Text>
-					<Box>
+					<Box flex={1} marginVertical="xl">
 						<Input
 							{...{ control, errors }}
 							fieldName="email"
@@ -76,13 +76,10 @@ const LoginScreen = ({ navigation }) => {
 						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} loading={loading} />
 						<Divider />
 						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
-						<Text
-							marginTop="m"
-							textAlign="center"
-							onPress={() => navigation.navigate('ForgotPassword')}>
-							Forgot password?
-						</Text>
 					</Box>
+					<Text textAlign="center" onPress={() => navigation.navigate('ForgotPassword')}>
+						Forgot password?
+					</Text>
 				</Box>
 			</SafeAreaView>
 		</BackgroundImage>
