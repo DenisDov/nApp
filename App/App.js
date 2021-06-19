@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from '@shopify/restyle';
 import { DefaultTheme, DarkTheme } from '@react-navigation/native';
+import FlashMessage from 'react-native-flash-message';
 import { theme, darkTheme } from './theme';
 
 import AppNavigator from './Navigation';
@@ -31,6 +32,7 @@ const App = () => {
 				<SafeAreaProvider>
 					<Network>
 						<AppNavigator theme={isDarkMode ? DarkTheme : navTheme} />
+						<FlashMessage position="top" />
 					</Network>
 				</SafeAreaProvider>
 			</ThemeProvider>

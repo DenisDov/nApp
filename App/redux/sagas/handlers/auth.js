@@ -1,5 +1,6 @@
 import { cps, call, apply, put, delay } from 'redux-saga/effects';
 import auth from '@react-native-firebase/auth';
+import { showMessage } from 'react-native-flash-message';
 // import RNBootSplash from 'react-native-bootsplash';
 
 import { setUserSuccess, loginSuccess, loginFailure, logoutSuccess } from '../../ducks/authSlice';
@@ -27,7 +28,7 @@ import { setUserSuccess, loginSuccess, loginFailure, logoutSuccess } from '../..
 // 		// 	});
 // 	} catch (e) {
 // 		console.log('eAUTh: ', e);
-// 		// yield put(loginFailure({ message: e.message }));
+// yield put(loginFailure({ message: e.message }));
 // 	}
 // }
 
@@ -47,6 +48,11 @@ export function* loginSaga({ payload }) {
 			default:
 				message = null;
 		}
+
+		yield showMessage({
+			message,
+			type: 'danger',
+		});
 		yield put(loginFailure(message));
 	}
 }

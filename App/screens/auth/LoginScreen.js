@@ -39,7 +39,6 @@ const LoginScreen = ({ navigation }) => {
 
 	const dispatch = useDispatch();
 	const loading = useSelector(state => state.auth.loading);
-	const authError = useSelector(state => state.auth.error);
 
 	const onSubmit = data => {
 		console.log('data: ', data);
@@ -67,12 +66,6 @@ const LoginScreen = ({ navigation }) => {
 							placeholder={t('passwordPlaceholder')}
 							secureTextEntry
 						/>
-
-						{authError && (
-							<Text variant="regular" marginBottom="s">
-								{authError}
-							</Text>
-						)}
 
 						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} loading={loading} />
 						<Divider />

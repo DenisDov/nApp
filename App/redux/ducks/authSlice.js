@@ -13,7 +13,7 @@ const authSlice = createSlice({
 			return { ...state, user, loading: false, error: null };
 		},
 		loginRequest(state, action) {
-			return { ...state, loading: true };
+			return { ...state, loading: true, error: null };
 		},
 		loginSuccess(state, action) {
 			const user = action.payload;
