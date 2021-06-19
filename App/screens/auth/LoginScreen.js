@@ -58,6 +58,7 @@ const LoginScreen = ({ navigation }) => {
 							fieldName="email"
 							ionicon="mail-outline"
 							placeholder={t('emailPlaceholder')}
+							keyboardType="email-address"
 						/>
 						<Input
 							{...{ control, errors }}
