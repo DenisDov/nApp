@@ -1,6 +1,9 @@
 import { put } from 'redux-saga/effects';
 import auth from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { showMessage } from 'react-native-flash-message';
+
+const { FIREBASE_IOS_CLIENT_ID } = require('../../../config/env');
 
 import { loginFailure, registerFailure, logoutSuccess } from '../../ducks/authSlice';
 
@@ -47,6 +50,23 @@ export function* registerSaga({ payload }) {
 			icon: 'warning',
 		});
 		yield put(registerFailure(message));
+	}
+}
+
+export function* socialSaga() {
+	try {
+		yield GoogleSignin.configure({
+			webClientId: FIREBASE_IOS_CLIENT_ID,
+		});
+
+		const { idToken } = yield GoogleSignin.signIn();
+		// Create a Google credential with the token
+		const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+		// Sign-in the user with the credential
+		yield auth().signInWithCredential(googleCredential);
+	} catch (error) {
+		console.log('errorGOOGLE: ', error);
+		// yield put(loginFailure(error.message));
 	}
 }
 

@@ -44,6 +44,7 @@ const theme = createTheme({
 	},
 	borderRadii: {
 		s: 8,
+		xl: 50,
 	},
 	breakpoints: {
 		phone: 0,
