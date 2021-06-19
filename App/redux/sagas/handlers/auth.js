@@ -52,6 +52,7 @@ export function* loginSaga({ payload }) {
 		yield showMessage({
 			message,
 			type: 'danger',
+			icon: 'warning',
 		});
 		yield put(loginFailure(message));
 	}

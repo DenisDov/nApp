@@ -32,7 +32,7 @@ const App = () => {
 				<SafeAreaProvider>
 					<Network>
 						<AppNavigator theme={isDarkMode ? DarkTheme : navTheme} />
-						<FlashMessage position="top" />
+						<FlashMessage position="top" titleStyle={{ fontFamily: 'Raleway-SemiBold' }} />
 					</Network>
 				</SafeAreaProvider>
 			</ThemeProvider>
