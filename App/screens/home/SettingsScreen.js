@@ -1,49 +1,84 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView, StyleSheet, Alert } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { Card, Box, Text } from '../../theme';
 
 import Body from '../../components/Body';
+import Button from '../../components/Button';
+
+import { logoutRequest } from '../../redux/ducks/authSlice';
 
 const SettingsScreen = () => {
+	const dispatch = useDispatch();
+	const user = useSelector(state => state.auth.user);
+
+	const logout = () => {
+		Alert.alert(
+			'Logout',
+			'Are you sure?',
+			[
+				{
+					text: 'Cancel',
+					onPress: () => null,
+					style: 'cancel',
+				},
+				{ text: 'OK', onPress: () => dispatch(logoutRequest()) },
+			],
+			{ cancelable: false },
+		);
+	};
+
 	return (
 		<Body>
-			<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
-				<ScrollView style={styles.scrollView}>
-					<Card variant="elevated" marginHorizontal="s" marginBottom="s">
-						<Box padding="s">
-							<Text>Units</Text>
-							<Box flexDirection="row" alignItems="center" justifyContent="space-between">
-								<Text>Speed</Text>
-								<Text>km/h</Text>
-							</Box>
+			<ScrollView style={styles.scrollView}>
+				<Card variant="elevated" marginHorizontal="s" marginTop="s">
+					<Box padding="s">
+						<Text variant="title" marginBottom="m">
+							User
+						</Text>
+						<Box flexDirection="row" alignItems="center" justifyContent="space-between">
+							<Text>E-mail</Text>
+							<Text>{user.email}</Text>
 						</Box>
-					</Card>
-					<Card variant="elevated" marginHorizontal="s" marginBottom="s">
-						<Box padding="s">
-							<Text>Weather</Text>
-							<Box flexDirection="row" alignItems="center" justifyContent="space-between">
-								<Text>Wind speed</Text>
-								<Text>m/s</Text>
-							</Box>
-							<Box flexDirection="row" alignItems="center" justifyContent="space-between">
-								<Text>Temperature</Text>
-								<Text>Celsius</Text>
-							</Box>
+					</Box>
+				</Card>
+				<Card variant="elevated" marginHorizontal="s" marginTop="s">
+					<Box padding="s">
+						<Text variant="title" marginBottom="m">
+							Units
+						</Text>
+						<Box flexDirection="row" alignItems="center" justifyContent="space-between">
+							<Text>Speed</Text>
+							<Text>km/h</Text>
 						</Box>
-					</Card>
-				</ScrollView>
-			</SafeAreaView>
+					</Box>
+				</Card>
+				<Card variant="elevated" marginHorizontal="s" marginTop="s">
+					<Box padding="s">
+						<Text variant="title" marginBottom="m">
+							Weather
+						</Text>
+						<Box flexDirection="row" alignItems="center" justifyContent="space-between">
+							<Text>Wind speed</Text>
+							<Text>m/s</Text>
+						</Box>
+						<Box flexDirection="row" alignItems="center" justifyContent="space-between">
+							<Text>Temperature</Text>
+							<Text>Celsius</Text>
+						</Box>
+					</Box>
+				</Card>
+				<Box margin="s">
+					<Button text="Logout" onPress={logout} />
+				</Box>
+			</ScrollView>
 		</Body>
 	);
 };
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
 	scrollView: {
-		paddingTop: 8,
+		// paddingTop: 8,
 	},
 });
 

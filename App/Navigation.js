@@ -1,12 +1,15 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
-// import { useTheme } from '@shopify/restyle';
+import LottieView from 'lottie-react-native';
+import auth from '@react-native-firebase/auth';
+
+import { setUser } from './redux/ducks/authSlice';
+import isEmpty from './services/is-empty';
 
 import i18n from './i18n';
 // Screens start
@@ -62,9 +65,34 @@ const AppTabs = () => {
 };
 
 const AppNavigator = ({ theme }) => {
-	const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+	const [initializing, setInitializing] = useState(true);
+	const dispatch = useDispatch();
+	const isAuthenticated = !isEmpty(useSelector(state => state.auth.user));
+
+	function onAuthStateChanged(user) {
+		dispatch(setUser(user));
+		if (initializing) setInitializing(false);
+	}
+
+	useEffect(() => {
+		const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+		return subscriber;
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	if (initializing) {
+		return (
+			<LottieView
+				source={require('./assets/lottie.json')}
+				autoPlay
+				loop
+				style={{ backgroundColor: '#003144' }}
+			/>
+		);
+	}
+
 	return (
-		<NavigationContainer theme={theme} onReady={() => RNBootSplash.hide({ fade: true })}>
+		<NavigationContainer theme={theme} onReady={() => RNBootSplash.hide()}>
 			<Stack.Navigator>
 				{isAuthenticated ? (
 					<Stack.Group>
@@ -73,6 +101,9 @@ const AppNavigator = ({ theme }) => {
 							component={AppTabs}
 							options={({ route }) => ({
 								headerTitle: getHeaderTitle(route),
+								headerTitleStyle: {
+									fontFamily: 'SquadaOne-Regular',
+								},
 							})}
 						/>
 						<Stack.Screen
@@ -82,6 +113,7 @@ const AppNavigator = ({ theme }) => {
 								headerTranslucent: true,
 								headerTitle: '',
 								headerShadowVisible: false,
+								headerBackTitleVisible: false,
 							}}
 						/>
 					</Stack.Group>

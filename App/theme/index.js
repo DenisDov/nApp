@@ -1,4 +1,3 @@
-import { Image, TouchableOpacity } from 'react-native';
 import {
 	createTheme,
 	createBox,
@@ -8,6 +7,7 @@ import {
 } from '@shopify/restyle';
 
 import Animated from 'react-native-reanimated';
+import FastImage from 'react-native-fast-image';
 
 const palette = {
 	blue: '#026AFF',
@@ -68,6 +68,10 @@ const theme = createTheme({
 			fontSize: 28,
 			color: 'text',
 		},
+		title: {
+			fontFamily: 'SquadaOne-Regular',
+			fontSize: 18,
+		},
 	},
 	cardVariants: {
 		defaults: {
@@ -99,8 +103,7 @@ const darkTheme = {
 const Text = createText();
 const Box = createBox();
 const Card = createRestyleComponent([createVariant({ themeKey: 'cardVariants' })], Box);
-const ImageBox = createBox(Image);
-// const TouchBox = createBox(TouchableBox);
+const ImageBox = createBox(FastImage);
 const AnimatedBox = createBox(Animated.View);
 const AnimatedText = createText(Animated.Text);
 

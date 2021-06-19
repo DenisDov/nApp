@@ -36,6 +36,7 @@ const Input = ({ ionicon, control, errors, fieldName, ...rest }) => {
 							onChangeText={val => onChange(val)}
 							value={value}
 							underlineColorAndroid="transparent"
+							autoCapitalize="none"
 							{...rest}
 						/>
 						{isDirty && (

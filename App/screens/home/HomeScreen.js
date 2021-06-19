@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { FlatList, StyleSheet, Platform, StatusBar, Pressable } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getPhotosRequest } from '../../redux/ducks/photoSlice';
@@ -41,6 +40,9 @@ const HomeScreen = ({ navigation }) => {
 						marginBottom="s"
 						resizeMode="contain"
 					/>
+					<Text numberOfLines={1} variant="title" marginBottom="xs">
+						{item.title}
+					</Text>
 					<Text numberOfLines={2}>{item.title}</Text>
 				</Box>
 			</Card>
@@ -54,27 +56,22 @@ const HomeScreen = ({ navigation }) => {
 	return (
 		<Body>
 			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" />}
-			<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']}>
-				<AnimatedCard>
-					<FlatList
-						numColumns={2}
-						contentContainerStyle={styles.flatlist}
-						data={photos}
-						renderItem={renderItem}
-						keyExtractor={item => item.id}
-					/>
-				</AnimatedCard>
-			</SafeAreaView>
+			<AnimatedCard>
+				<FlatList
+					numColumns={2}
+					contentContainerStyle={styles.flatlist}
+					data={photos}
+					renderItem={renderItem}
+					keyExtractor={item => item.id}
+				/>
+			</AnimatedCard>
 		</Body>
 	);
 };
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
 	flatlist: {
-		margin: 8,
+		padding: 8,
 	},
 	pressable: {
 		flex: 0.5,

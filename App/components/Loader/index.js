@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import { useTheme } from '@shopify/restyle';
 
 import { Box } from '../../theme';

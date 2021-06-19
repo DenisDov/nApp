@@ -5,6 +5,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { loginRequest } from '../../redux/ducks/authSlice';
 
 import { Box, Text } from '../../theme';
 
@@ -16,7 +19,10 @@ import Divider from '../../components/Divider';
 
 const schema = yup.object().shape({
 	email: yup.string().email().required(),
-	password: yup.string().required(),
+	password: yup
+		.string()
+		.min(6, ({ min }) => `Password must be at least ${min} characters`)
+		.required(),
 });
 
 const LoginScreen = ({ navigation }) => {
@@ -31,20 +37,27 @@ const LoginScreen = ({ navigation }) => {
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit = data => console.log('formdata', data);
+	const dispatch = useDispatch();
+	const loading = useSelector(state => state.auth.loading);
+
+	const onSubmit = data => {
+		console.log('data: ', data);
+		dispatch(loginRequest(data));
+	};
 
 	return (
 		<BackgroundImage>
 			{Platform.OS === 'android' && <StatusBar backgroundColor="#20111111" />}
 			<SafeAreaView style={styles.container}>
-				<Box flex={1} margin="m" justifyContent="space-between">
+				<Box flex={1} margin="m">
 					<Text variant="header">{t('Welcome back')}</Text>
-					<Box>
+					<Box flex={1} marginVertical="xl">
 						<Input
 							{...{ control, errors }}
 							fieldName="email"
 							ionicon="mail-outline"
 							placeholder={t('emailPlaceholder')}
+							keyboardType="email-address"
 						/>
 						<Input
 							{...{ control, errors }}
@@ -54,16 +67,13 @@ const LoginScreen = ({ navigation }) => {
 							secureTextEntry
 						/>
 
-						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} />
+						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} loading={loading} />
 						<Divider />
 						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
-						<Text
-							marginTop="m"
-							textAlign="center"
-							onPress={() => navigation.navigate('ForgotPassword')}>
-							Forgot password?
-						</Text>
 					</Box>
+					<Text textAlign="center" onPress={() => navigation.navigate('ForgotPassword')}>
+						Forgot password?
+					</Text>
 				</Box>
 			</SafeAreaView>
 		</BackgroundImage>

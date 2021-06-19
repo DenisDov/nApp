@@ -8,5 +8,6 @@ export default {
 	or: 'или',
 	emailPlaceholder: 'Email',
 	passwordPlaceholder: 'Пароль',
+	passwordRetype: 'Подтвердите =пароль',
 	settings: 'Настройки',
 };
