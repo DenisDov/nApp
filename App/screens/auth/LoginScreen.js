@@ -70,7 +70,8 @@ const LoginScreen = ({ navigation }) => {
 						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} loading={loading} />
 						<Divider />
 						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
-						<Button text="GOOGLE" onPress={() => dispatch(socialRequest())} />
+						<Box height={16} />
+						<Button text="Sign in with GOOGLE" onPress={() => dispatch(socialRequest())} />
 					</Box>
 					<Text textAlign="center" onPress={() => navigation.navigate('ForgotPassword')}>
 						Forgot password?

@@ -8,6 +8,7 @@ import {
 
 import Animated from 'react-native-reanimated';
 import FastImage from 'react-native-fast-image';
+import { Image, Platform } from 'react-native';
 
 const palette = {
 	blue: '#026AFF',
@@ -104,7 +105,7 @@ const darkTheme = {
 const Text = createText();
 const Box = createBox();
 const Card = createRestyleComponent([createVariant({ themeKey: 'cardVariants' })], Box);
-const ImageBox = createBox(FastImage);
+const ImageBox = createBox(Platform.OS === 'ios' ? FastImage : Image);
 const AnimatedBox = createBox(Animated.View);
 const AnimatedText = createText(Animated.Text);
 
