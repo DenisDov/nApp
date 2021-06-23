@@ -14,6 +14,7 @@ import { Box, Text } from '../../theme';
 // import Body from '../../components/Body';
 import BackgroundImage from '../../components/BackgroundImage';
 import Button from '../../components/Button';
+import ButtonSocial from '../../components/ButtonSocial';
 import Input from '../../components/Input';
 import Divider from '../../components/Divider';
 
@@ -70,8 +71,11 @@ const LoginScreen = ({ navigation }) => {
 						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} loading={loading} />
 						<Divider />
 						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
-						<Box height={16} />
-						<Button text="Sign in with GOOGLE" onPress={() => dispatch(socialRequest())} />
+						<Box flexDirection="row" marginTop="m">
+							<ButtonSocial type="google" onPress={() => dispatch(socialRequest())} />
+							<Box marginHorizontal="s" />
+							<ButtonSocial type="facebook" onPress={() => alert('Coming soon')} />
+						</Box>
 					</Box>
 					<Text textAlign="center" onPress={() => navigation.navigate('ForgotPassword')}>
 						Forgot password?
