@@ -7,7 +7,7 @@ import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { loginRequest } from '../../redux/ducks/authSlice';
+import { loginRequest, socialRequest } from '../../redux/ducks/authSlice';
 
 import { Box, Text } from '../../theme';
 
@@ -70,6 +70,7 @@ const LoginScreen = ({ navigation }) => {
 						<Button text={t('Login')} onPress={handleSubmit(onSubmit)} loading={loading} />
 						<Divider />
 						<Button text={t('Register')} onPress={() => navigation.navigate('Register')} />
+						<Button text="GOOGLE" onPress={() => dispatch(socialRequest())} />
 					</Box>
 					<Text textAlign="center" onPress={() => navigation.navigate('ForgotPassword')}>
 						Forgot password?
