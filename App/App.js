@@ -23,7 +23,6 @@ const navTheme = {
 
 const App = () => {
 	const isDarkMode = useColorScheme() === 'dark';
-	console.log('isDarkMode: ', isDarkMode);
 
 	return (
 		<Provider store={store}>
