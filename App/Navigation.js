@@ -28,7 +28,7 @@ const Tab = createMaterialBottomTabNavigator();
 function getHeaderTitle(route) {
 	// If the focused route is not found, we need to assume it's the initial screen
 	// This can happen during if there hasn't been any navigation inside the screen
-	const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+	const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomeTab';
 
 	switch (routeName) {
 		case 'HomeTab':
