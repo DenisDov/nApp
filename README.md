@@ -22,6 +22,13 @@ yarn android:prod
 
 ##### Running on simulator/real device:
 
+```
+yarn ios:dev
+yarn ios:prod
+```
+
+##### or
+
 1. Choose scheme;
 1. Run on simulator/device;
 
