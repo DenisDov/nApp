@@ -2,8 +2,7 @@ import { put } from 'redux-saga/effects';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { showMessage } from 'react-native-flash-message';
-
-const { FIREBASE_CLIENT_ID } = require('../../../config/env');
+import Config from 'react-native-config';
 
 import { loginFailure, registerFailure, logoutSuccess } from '../../ducks/authSlice';
 
@@ -56,7 +55,7 @@ export function* registerSaga({ payload }) {
 export function* socialSaga() {
 	try {
 		yield GoogleSignin.configure({
-			webClientId: FIREBASE_CLIENT_ID,
+			webClientId: Config.FIREBASE_CLIENT_ID,
 		});
 
 		const { idToken } = yield GoogleSignin.signIn();

@@ -322,6 +322,10 @@ PODS:
     - React-jsi (= 0.64.1)
     - React-perflogger (= 0.64.1)
   - React-jsinspector (0.64.1)
+  - react-native-config (1.4.3):
+    - react-native-config/App (= 1.4.3)
+  - react-native-config/App (1.4.3):
+    - React-Core
   - react-native-flipper (0.94.1):
     - React-Core
   - react-native-netinfo (6.0.0):
@@ -498,6 +502,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-config (from `../node_modules/react-native-config`)
   - react-native-flipper (from `../node_modules/react-native-flipper`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -592,6 +597,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-config:
+    :path: "../node_modules/react-native-config"
   react-native-flipper:
     :path: "../node_modules/react-native-flipper"
   react-native-netinfo:
@@ -691,6 +698,7 @@ SPEC CHECKSUMS:
   React-jsi: 5de8204706bd872b78ea646aee5d2561ca1214b6
   React-jsiexecutor: 124e8f99992490d0d13e0649d950d3e1aae06fe9
   React-jsinspector: 500a59626037be5b3b3d89c5151bc3baa9abf1a9
+  react-native-config: 387b1ea507bc50a2059e69149dac1342b9532f58
   react-native-flipper: e3da3457a7cb984b4beaddecb587674a8545b71d
   react-native-netinfo: e849fc21ca2f4128a5726c801a82fc6f4a6db50d
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
@@ -725,4 +733,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b2f47756d9e3466836297c3b432a9e4e3dfe9428
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2
