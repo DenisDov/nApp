@@ -6,7 +6,7 @@ nApp is a personal React Native Sandbox project.
 
 ```bash
 yarn install
-cd ios && pod install
+cd ios && pod install && cd ..
 ```
 
 ## How to run:
