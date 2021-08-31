@@ -8,7 +8,7 @@ import {
 
 import Animated from 'react-native-reanimated';
 import FastImage from 'react-native-fast-image';
-import { Image, Platform } from 'react-native';
+import { Image, ScrollView, Platform } from 'react-native';
 
 const palette = {
 	blue: '#026AFF',
@@ -45,6 +45,7 @@ const theme = createTheme({
 	},
 	borderRadii: {
 		s: 8,
+		m: 16,
 		xl: 50,
 	},
 	breakpoints: {
@@ -106,7 +107,8 @@ const Text = createText();
 const Box = createBox();
 const Card = createRestyleComponent([createVariant({ themeKey: 'cardVariants' })], Box);
 const ImageBox = createBox(Platform.OS === 'ios' ? FastImage : Image);
+const ScrollBox = createBox(ScrollView);
 const AnimatedBox = createBox(Animated.View);
 const AnimatedText = createText(Animated.Text);
 
-export { theme, darkTheme, Text, Box, Card, ImageBox, AnimatedBox, AnimatedText };
+export { theme, darkTheme, Text, Box, Card, ImageBox, ScrollBox, AnimatedBox, AnimatedText };

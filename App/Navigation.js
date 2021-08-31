@@ -20,6 +20,7 @@ import ForgotPassword from '../App/screens/auth/ForgotPassword';
 import HomeScreen from '../App/screens/home/HomeScreen';
 import DetailScreen from '../App/screens/home/DetailScreen';
 import SettingsScreen from '../App/screens/home/SettingsScreen';
+import SandboxScreen from '../App/screens/home/SandboxScreen';
 // Screens end
 
 const Stack = createNativeStackNavigator();
@@ -60,6 +61,7 @@ const AppTabs = () => {
 			screenOptions={screenOptions}>
 			<Tab.Screen name="HomeTab" component={HomeScreen} />
 			<Tab.Screen name="SettingsTab" component={SettingsScreen} />
+			<Tab.Screen name="SandboxTab" component={SandboxScreen} />
 		</Tab.Navigator>
 	);
 };
