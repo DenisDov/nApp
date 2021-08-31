@@ -18,6 +18,7 @@ import RegisterScreen from '../App/screens/auth/RegisterScreen';
 import ForgotPassword from '../App/screens/auth/ForgotPassword';
 
 import HomeScreen from '../App/screens/home/HomeScreen';
+import TabScreen from '../App/screens/home/TabScreen';
 import DetailScreen from '../App/screens/home/DetailScreen';
 import SettingsScreen from '../App/screens/home/SettingsScreen';
 // Screens end
@@ -58,8 +59,9 @@ const AppTabs = () => {
 			inactiveColor="#3e2465"
 			labeled={false}
 			screenOptions={screenOptions}>
+			<Tab.Screen name="TabScreen" component={TabScreen} />
 			<Tab.Screen name="HomeTab" component={HomeScreen} />
-			<Tab.Screen name="SettingsTab" component={SettingsScreen} />
+			{/* <Tab.Screen name="SettingsTab" component={SettingsScreen} /> */}
 		</Tab.Navigator>
 	);
 };
