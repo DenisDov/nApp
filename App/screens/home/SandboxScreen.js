@@ -4,16 +4,18 @@ import { Card, Box, Text, ImageBox, ScrollBox } from '../../theme';
 
 import Body from '../../components/Body';
 import NeoButton from '../../components/NeoButton';
+import ToggleCard from '../../components/ToggleCard';
 
 const SandboxScreen = () => {
 	return (
 		<Body>
 			<ScrollBox padding="m">
-				<Box flexDirection="row">
+				<ToggleCard />
+				{/* <Box flexDirection="row">
 					<NeoButton label="Main Button" variant="primary" />
 					<Box width={8} />
 					<NeoButton label="Error Button" variant="error" />
-				</Box>
+				</Box> */}
 			</ScrollBox>
 		</Body>
 	);

@@ -8,7 +8,7 @@ import {
 
 import Animated from 'react-native-reanimated';
 import FastImage from 'react-native-fast-image';
-import { Image, ScrollView, Platform } from 'react-native';
+import { Image, ScrollView, Platform, TouchableOpacity } from 'react-native';
 
 const palette = {
 	blue: '#026AFF',
@@ -20,6 +20,7 @@ const palette = {
 	white: '#ffffff',
 	red: '#B00020', // error for light theme
 	purple: '#CF6679', // error for dark theme
+	yellow: '#B9BF04',
 };
 
 const theme = createTheme({
@@ -35,6 +36,7 @@ const theme = createTheme({
 		surface: palette.white,
 		shadow: palette.black,
 		// notification: 'rgb(255, 69, 58)',
+		accent: palette.yellow,
 	},
 	spacing: {
 		xs: 4,
@@ -107,8 +109,11 @@ const Text = createText();
 const Box = createBox();
 const Card = createRestyleComponent([createVariant({ themeKey: 'cardVariants' })], Box);
 const ImageBox = createBox(Platform.OS === 'ios' ? FastImage : Image);
+const TouchBox = createBox(
+	TouchableOpacity
+);
 const ScrollBox = createBox(ScrollView);
 const AnimatedBox = createBox(Animated.View);
 const AnimatedText = createText(Animated.Text);
 
-export { theme, darkTheme, Text, Box, Card, ImageBox, ScrollBox, AnimatedBox, AnimatedText };
+export { theme, darkTheme, Text, Box, Card, ImageBox, TouchBox, ScrollBox, AnimatedBox, AnimatedText };

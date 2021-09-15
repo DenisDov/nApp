@@ -5,8 +5,8 @@
 	"scripts": {
 		"android:dev": "react-native run-android --variant=debug",
 		"android:prod": "react-native run-android --variant=release",
-		"ios:dev": "react-native run-ios --scheme 'development'",
-		"ios:prod": "react-native run-ios --scheme 'production'",
+		"ios:dev": "react-native run-ios --simulator='iPhone SE (2nd generation)' --scheme 'development'",
+		"ios:prod": "react-native run-ios --simulator='iPhone SE (2nd generation)' --scheme 'production'",
 		"start": "react-native start",
 		"test": "jest",
 		"lint": "eslint ."
@@ -45,6 +45,7 @@
 		"react-native-safe-area-context": "^3.2.0",
 		"react-native-screens": "^3.2.0",
 		"react-native-shadow-2": "^4.1.0",
+		"react-native-svg": "^12.1.1",
 		"react-native-vector-icons": "^8.1.0",
 		"react-redux": "^7.2.4",
 		"redux-saga": "^1.1.3",
