@@ -9,16 +9,48 @@ import ToggleCard from '../../components/ToggleCard';
 const SandboxScreen = () => {
 	return (
 		<Body>
-			<ScrollBox padding="m">
-				<ToggleCard />
-				<Box height={20}></Box>
-				<ToggleCard />
+			<ScrollView style={{ flex: 1 }}>
+				<Box padding="m">
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+					<Box height={20}></Box>
+					<ToggleCard />
+				</Box>
 				{/* <Box flexDirection="row">
 					<NeoButton label="Main Button" variant="primary" />
 					<Box width={8} />
 					<NeoButton label="Error Button" variant="error" />
 				</Box> */}
-			</ScrollBox>
+			</ScrollView>
 		</Body>
 	);
 };

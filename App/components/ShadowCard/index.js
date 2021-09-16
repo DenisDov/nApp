@@ -29,9 +29,6 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.accent,
 		overflow: 'hidden',
 	},
-	// inner: {
-	// 	backgroundColor: theme.colors.primary,
-	// },
 });
 
 export default ShadowCard;
