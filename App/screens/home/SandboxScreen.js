@@ -11,6 +11,8 @@ const SandboxScreen = () => {
 		<Body>
 			<ScrollBox padding="m">
 				<ToggleCard />
+				<Box height={20}></Box>
+				<ToggleCard />
 				{/* <Box flexDirection="row">
 					<NeoButton label="Main Button" variant="primary" />
 					<Box width={8} />
